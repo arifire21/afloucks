@@ -1,95 +1,52 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import styles from '@/styles/page.module.css'
+import GlimpseCard from '@/components/card'
+import EagleEyeLogo from '@/images/eagle-eye/logo_transparent_crop.png'
+import LEILogo from '@/images/loucks-eng/logo192.png'
+import SilviLogo from '@/images/silvi/silvi_logo.webp'
+import JustLearnLogo from '@/images/justlearn/justlearn_logo.webp'
 
 export default function Home() {
   return (
+    <>
+    <h1>Professional Experience</h1>
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+      <GlimpseCard
+        logo={EagleEyeLogo}
+        position='Website Designer and Developer'
+        company='Eagle Eye Monitoring, LLC.'
+        jobType='Freelance (Remote)'
+        duration='Nov 2023 - Present'
+        blurb='Figma | TypeScript | SCSS | Next.js | SendGrid | MaterialUI-Base'
+      />
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <GlimpseCard
+        logo={LEILogo}
+        position='Website Developer'
+        company='Loucks Engineering, Inc.'
+        jobType='Part-Time'
+        duration='May 2023 - Present'
+        blurb='React.js | CD/CI | JavaScript | React-Bootstrap | JSON'
+      />
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+      <GlimpseCard
+        logo={SilviLogo}
+        position='Front-End Web Developer'
+        company='Silvi'
+        jobType='Part-Time (Remote)'
+        duration='Jun 2022 - Jul 2023'
+        blurb='TypeScript | SCSS | Next.js | APIs | in-browser camera'
+      />
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      <GlimpseCard
+        logo={JustLearnLogo}
+        position='Front-End Web Developer'
+        company='JustLearn'
+        jobType='Internship & Part-Time (Remote)'
+        duration='Nov 2021 - June 2022'
+        blurb='Django | HTML5 | SCSS | JavaScript | Python | jQuery | Web APIs | Bootstrap'
+      />
+      </main>
+      <h1>Projects</h1>
+      </>
   )
 }
