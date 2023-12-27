@@ -25,7 +25,7 @@ export default function Home() {
         company='Loucks Engineering, Inc.'
         jobType='Part-Time'
         duration='May 2023 - Present'
-        blurb='React.js | CD/CI | JavaScript | React-Bootstrap | JSON'
+        blurb='React.js | CD/CI (Heroku) | JavaScript | React-Bootstrap | JSON'
       />
 
       <GlimpseCard
