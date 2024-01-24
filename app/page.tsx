@@ -2,21 +2,57 @@ import styles from '@/styles/page.module.css'
 import {WorkCard, ProjectCard} from '@/components/card'
 import { List, ListDivider, ListItem, Typography } from '@mui/joy'
 import Navbar from '@/components/navbar'
-import { SiFigma, SiHtml5, SiCss3, SiAmazonaws, SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiJquery, SiDjango, SiDiscord, SiGithub, SiDevpost, SiLinkedin } from "react-icons/si";
-import EagleEyeLogo from '@/images/eagle-eye/logo_transparent_crop.png'
-import LEILogo from '@/images/loucks-eng/logo192.png'
-import SilviLogo from '@/images/silvi/silvi_logo.webp'
-import JustLearnLogo from '@/images/justlearn/justlearn_logo.webp'
+import { SiFigma, SiHtml5, SiCss3, SiAmazonaws, SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiJquery, SiDjango, SiDiscord, SiGithub, SiDevpost, SiLinkedin, SiJira, SiTrello, SiCanva, SiPython, SiMysql, SiOracle, SiNotion, SiGimp, SiMui, SiBootstrap } from "react-icons/si";
+import { FaJava } from 'react-icons/fa';
+// import EagleEyeLogo from '@/images/eagle-eye/logo_transparent_crop.png'
+// import LEILogo from '@/images/loucks-eng/logo192.png'
+// import SilviLogo from '@/images/silvi/silvi_logo.webp'
+// import JustLearnLogo from '@/images/justlearn/justlearn_logo.webp'
 
 export default function Home() {
   return (
     <>
     <Navbar/>
-    <section style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
+    <section className={styles.genericCenter}>
       <h1>Arianna Loucks</h1>
       <p>stuff</p>
 
+      <h2>What I Use:</h2>
+      <h3>Languages</h3>
       <List
+         orientation='horizontal'
+         variant='outlined'
+         sx={{
+            // flexGrow: 0,
+            mx: 'auto',
+            '--ListItem-paddingY': '1rem',
+            borderRadius: 'md',
+            width:'fit-content'
+          }}
+          >
+            <ListItem><SiJavascript size={25}/>JavaScript</ListItem>
+            <ListDivider inset='gutter'/>
+            <ListItem><SiTypescript size={25}/>TypeScript</ListItem>
+            <ListDivider inset='gutter'/>
+            <ListItem><SiJquery size={25}/>jQuery</ListItem>
+            <ListDivider inset='gutter'/>
+            <ListItem><SiHtml5 size={25}/>HTML5</ListItem>
+            <ListDivider inset='gutter'/>
+            <ListItem><SiCss3 size={25}/>CSS/SCSS</ListItem>
+            <ListDivider inset='gutter'/>
+            <ListItem><SiPython size={25}/>Python</ListItem>
+            <ListDivider inset='gutter'/>
+            <ListItem><SiMysql size={25}/>MySQL</ListItem>
+            <ListDivider inset='gutter'/>
+            <ListItem><SiOracle size={25}/>Oracle SQL</ListItem>
+            <ListDivider inset='gutter'/>
+            <ListItem><FaJava size={25}/>Java</ListItem>
+            <ListDivider inset='gutter'/>
+            <ListItem>C++/C#</ListItem>
+        </List>
+
+        <h3>Frameworks and Tools</h3>
+        <List
          orientation='horizontal'
          variant='outlined'
          sx={{
@@ -31,24 +67,40 @@ export default function Home() {
             <ListDivider inset='gutter'/>
             <ListItem><SiNextdotjs size={25}/>Next.js</ListItem>
             <ListDivider inset='gutter'/>
-            <ListItem><SiHtml5 size={25}/>HTML5</ListItem>
+            <ListItem><SiMui size={25}/>Material UI<Typography level='body-sm'>(MD, Joy, Base)</Typography></ListItem>
             <ListDivider inset='gutter'/>
-            <ListItem><SiJavascript size={25}/>JavaScript</ListItem>
-            <ListDivider inset='gutter'/>
-            <ListItem><SiTypescript size={25}/>TypeScript</ListItem>
-            <ListDivider inset='gutter'/>
-            <ListItem><SiJquery size={25}/>jQuery</ListItem>
-            <ListDivider inset='gutter'/>
-            <ListItem><SiCss3 size={25}/>CSS/SCSS</ListItem>
-            <ListDivider inset='gutter'/>
-            <ListItem><SiFigma size={25}/>Figma</ListItem>
-            <ListDivider inset='gutter'/>
-            <ListItem><SiAmazonaws size={25}/>AWS (EC2, Lambda)</ListItem>
+            <ListItem><SiBootstrap size={25}/>Bootstrap</ListItem>
             <ListDivider inset='gutter'/>
             <ListItem><SiDjango size={25}/>Django</ListItem>
-            {/* <ListDivider inset='gutter'/>
-            <ListItem><SiDiscord size={25}/>Discord.js</ListItem> */}
-        </List>
+            <ListDivider inset='gutter'/>
+            <ListItem><SiAmazonaws size={25}/>AWS<Typography level='body-sm'>(EC2, Lambda)</Typography></ListItem>
+          </List>
+
+        <h3>Design and Productivity</h3>
+        <List
+         orientation='horizontal'
+         variant='outlined'
+         sx={{
+            // flexGrow: 0,
+            mx: 'auto',
+            '--ListItem-paddingY': '1rem',
+            borderRadius: 'md',
+            width:'fit-content'
+          }}
+          >
+            <ListItem><SiFigma size={25}/>Figma</ListItem>
+            <ListDivider inset='gutter'/>
+            <ListItem><SiCanva size={25}/>Canva</ListItem>
+            <ListDivider inset='gutter'/>
+            <ListItem><SiGimp size={25}/>GIMP</ListItem>
+            <ListDivider inset='gutter'/>
+            <ListItem><SiJira size={25}/>Jira</ListItem>
+            <ListDivider inset='gutter'/>
+            <ListItem><SiNotion size={25}/>Notion</ListItem>
+            <ListDivider inset='gutter'/>
+            <ListItem><SiTrello size={25}/>Trello</ListItem>
+            <ListDivider inset='gutter'/>
+          </List>
     </section>
 
     <main className={styles.main}>
