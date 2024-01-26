@@ -12,7 +12,7 @@ export default function DarkModeSwitch(){
         //'mode' is defaulted to 'system' (before localstorage takes over)
         //detect system pref on load
         console.log(`${mode}, ${systemMode}`)
-        if(mode || systemMode === 'dark'){
+        if(mode === 'dark' || systemMode === 'dark'){
             console.log('dark is true')
             setDark(true)
         }
@@ -21,12 +21,12 @@ export default function DarkModeSwitch(){
     return(
         <Switch
             aria-label='light/dark mode'
-            color={dark ? 'success' : 'neutral'}  //purple hex : gray hex
+            color={dark ? 'primary' : 'neutral'}  //purple hex : gray hex
             checked={dark}
             onChange={(event) => setDark(event.target.checked)}
             onClick={() => setMode(mode === 'dark' ? 'light' : 'dark')}
-            startDecorator={<FaSun color={dark ? 'gray' : 'green'}/>}
-            endDecorator={<FaMoon color={dark ? 'green' : 'gray'}/>}
+            startDecorator={<FaSun color={dark ? 'white' : 'navy'}/>}
+            endDecorator={<FaMoon color={dark ? 'navy' : 'white'}/>}
         />
     )
 }

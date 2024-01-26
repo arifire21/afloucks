@@ -1,40 +1,91 @@
-import Image, { StaticImageData } from 'next/image';
-import AspectRatio from '@mui/joy/AspectRatio';
-import Button from '@mui/joy/Button';
-import Card from '@mui/joy/Card';
-import CardContent from '@mui/joy/CardContent';
-import Typography from '@mui/joy/Typography';
+// import Image, { StaticImageData } from 'next/image';
+import Link from 'next/link';
+// import AspectRatio from '@mui/joy/AspectRatio';
+import { Button, Card, CardContent, Typography, Chip } from '@mui/joy';
 
-interface CardProps {
-    logo: StaticImageData;
+type variantOptions = 'solid' | 'outlined'
+type linkOptions = 'github' | 'site' | 'figma' | 'details'
+
+interface ButtonInterface {
+  text:string,
+  variant: variantOptions,
+  link:string,
+  linkTo: linkOptions, //kind of like an id, to be part of key
+}
+
+interface WorkProps {
+    // logo: StaticImageData;
     position: string;
     company: string;
     jobType: string;
     duration: string;
     blurb: string;
+    // link: string;
+    tools: string[];
+    buttons?: ButtonInterface[];
 }
 
-export default function GlimpseCard({logo, position, company, jobType, duration, blurb} : CardProps) {
+interface ProjectProps {
+  blurb: string;
+  link: string;
+  projectTitle: string;
+  subtitle: string;
+  date: string;
+}
+
+export function WorkCard({position, company, jobType, duration, blurb, tools, buttons} : WorkProps) {
   return (
-    <Card sx={{ width: 350 }} size='lg'>
-      <AspectRatio minHeight="120px" maxHeight="200px">
+    <Card sx={{ width: 350 }} size='md'>
+      {/* <AspectRatio minHeight="120px" maxHeight="200px">
         <Image src={logo} alt='card-img' fill={true} style={{objectFit:'contain'}}/>
-      </AspectRatio>
+      </AspectRatio> */}
+      <CardContent>
+        <Typography level="title-lg">{position}</Typography>
+        <Typography level='body-md'>{company}</Typography>
+        <Typography level="body-sm">{jobType} | {duration}</Typography>
+        <Typography>{blurb}</Typography>
+
+        <div className='chip-container'>
+        {tools.map((tool) => (
+          <Chip variant='outlined' color='primary' key={`${company}-${tool}`}>{tool}</Chip>
+        ))}
+        </div>
+
+        {buttons?.map((button) => (
+          <Button 
+            key={`${company}-${button.linkTo}`}
+            variant={button.variant}
+            size="md"
+            color="primary"
+            aria-label={`${company}-${button.linkTo} button`}
+            sx={{ ml: 'auto', fontWeight: 500 }}
+          >
+            <Link href={button.link}>{button.text}</Link>
+          </Button>
+        ))}
+      </CardContent>
+    </Card>
+  );
+}
+
+export function ProjectCard({projectTitle, subtitle, date, blurb, link} : ProjectProps) {
+  return (
+    <Card sx={{ width: 350 }} size='md'>
       <CardContent>
         <div>
-            <Typography level="title-lg">{position}</Typography>
-            <Typography level='body-md'>{company}</Typography>
-            <Typography level="body-sm">{jobType} | {duration}</Typography>
+            <Typography level="title-lg">{projectTitle}</Typography>
+            <Typography level='body-md'>{subtitle}</Typography>
+            <Typography level="body-sm">{date}</Typography>
             <Typography>{blurb}</Typography>
         </div>
         <Button 
           variant="solid"
           size="md"
-          color="primary"
-          aria-label="View Silvi Details"
+          color="success"
+          aria-label="'View + {company} + Details'"
           sx={{ ml: 'auto', fontWeight: 600 }}
         >
-          View Details
+          <Link href={link}>View Details</Link>
         </Button>
       </CardContent>
     </Card>
