@@ -11,7 +11,7 @@ export default function ContactPage(){
         <section>
             <p>Or connect with me!</p>
             <a href='https://github.com/arifire21/' target='_blank'><SiGithub size={25}/>Github</a>
-            <a href='https://devpost.com/afloucks' target='_blank'><SiLinkedin/>Linkedin</a>
+            <a href='https://devpost.com/afloucks' target='_blank'><SiLinkedin size={25}/>Linkedin</a>
             <a href='https://github.com/arifire21/' target='_blank'><SiDevpost size={25}/>Devpost</a>
         </section>
         </>

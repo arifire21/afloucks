@@ -3,7 +3,7 @@ import styles from '@/styles/page.module.css'
 import {WorkCard, ProjectCard} from '@/components/card'
 import { List, ListDivider, ListItem, Typography } from '@mui/joy'
 import Navbar from '@/components/navbar'
-import { SiFigma, SiHtml5, SiCss3, SiAmazonaws, SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiJquery, SiDjango, SiDiscord, SiGithub, SiDevpost, SiLinkedin, SiJira, SiTrello, SiCanva, SiPython, SiMysql, SiOracle, SiNotion, SiGimp, SiMui, SiBootstrap, SiNodedotjs, SiVisualstudiocode, SiVisualstudio, SiCplusplus, SiCsharp } from "react-icons/si";
+import { SiFigma, SiHtml5, SiCss3, SiAmazonaws, SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiJquery, SiDjango, SiDiscord, SiGithub, SiDevpost, SiLinkedin, SiJira, SiTrello, SiCanva, SiPython, SiMysql, SiOracle, SiNotion, SiGimp, SiMui, SiBootstrap, SiNodedotjs, SiVisualstudiocode, SiVisualstudio, SiCplusplus, SiCsharp, SiUnity, SiArduino, SiCreality } from "react-icons/si";
 import { FaJava } from 'react-icons/fa';
 import { useEffect } from 'react';
 // import EagleEyeLogo from '@/images/eagle-eye/logo_transparent_crop.png'
@@ -82,10 +82,7 @@ export default function Home() {
     <Navbar/>
     <main className={styles.main}>
 
-      <section className={styles.genericCenter}
-        // onMouseEnter={() => enterNav('about-section')}
-        // onMouseLeave={() => leaveNav('about-section')}
-      >
+      <section className={styles.genericCenter}>
         <h1><a id='about'>Arianna Loucks</a></h1>
         <p>stuff</p>
 
@@ -116,11 +113,9 @@ export default function Home() {
               <ListDivider inset='gutter'/>
               <ListItem><SiMysql size={25}/>MySQL</ListItem>
               <ListDivider inset='gutter'/>
-              <ListItem><SiOracle size={25}/>Oracle SQL</ListItem>
-              <ListDivider inset='gutter'/>
               <ListItem><FaJava size={25}/>Java</ListItem>
               <ListDivider inset='gutter'/>
-              <ListItem><SiCplusplus size={25}/><SiCsharp size={25}/>C++/C#</ListItem>
+              <ListItem><SiCplusplus size={25}/>C++</ListItem>
           </List>
 
         <h3>Frameworks and Tools</h3>
@@ -150,8 +145,6 @@ export default function Home() {
             <ListItem><SiAmazonaws size={25}/>AWS<Typography level='body-sm'>(EC2, Lambda)</Typography></ListItem>
             <ListDivider inset='gutter'/>
             <ListItem><SiVisualstudiocode size={25}/>VSCode</ListItem>
-            <ListDivider inset='gutter'/>
-            <ListItem><SiVisualstudio size={25}/>Visual Studio</ListItem>
           </List>
 
           <h3>Design and Productivity</h3>
@@ -172,29 +165,63 @@ export default function Home() {
               <ListDivider inset='gutter'/>
               <ListItem><SiGimp size={25}/>GIMP</ListItem>
               <ListDivider inset='gutter'/>
-              <ListItem><SiJira size={25}/>Jira</ListItem>
+              <ListItem><SiOracle size={25}/>Oracle SQL</ListItem>
               <ListDivider inset='gutter'/>
               <ListItem><SiNotion size={25}/>Notion</ListItem>
               <ListDivider inset='gutter'/>
               <ListItem><SiTrello size={25}/>Trello</ListItem>
             </List>
+
+            <h3>Hobby Tools:</h3>
+            <List
+            orientation='horizontal'
+            variant='outlined'
+            sx={{
+                // flexGrow: 0,
+                mx: 'auto',
+                '--ListItem-paddingY': '1rem',
+                borderRadius: 'md',
+                width:'fit-content'
+              }}
+              >
+                <ListItem><SiVisualstudio size={25}/>Visual Studio</ListItem>
+                <ListDivider inset='gutter'/>
+                <ListItem><SiUnity size={25}/>Unity<Typography level='body-sm'>(2D)</Typography></ListItem>
+                <ListDivider inset='gutter'/>
+                <ListItem><SiCsharp size={25}/>C#</ListItem>
+                <ListDivider inset='gutter'/>
+                <ListItem><SiArduino size={25}/>Arduino</ListItem>
+                <ListDivider inset='gutter'/>
+                <ListItem><SiCreality size={30}/>3D Printing</ListItem>
+              </List>
       </section>
 
-      <section
-        // onMouseEnter={() => enterNav('experience-section')}
-        // onMouseLeave={() => leaveNav('experience-section')}
-      >
-        <h1><a id='experience'>Professional Experience</a></h1>
-          {/* {/* <div className={styles.cardContainer}> */}
-            {/* <WorkCard
+      <section>
+        <h1 className={styles.header}><a id='experience'>Professional Experience</a></h1>
+          <div className={styles.cardContainer}>
+            <WorkCard
               // logo={EagleEyeLogo}
               position='Website Designer and Developer'
               company='Eagle Eye Monitoring, LLC.'
               jobType='Freelance (Remote)'
               duration='Nov 2023 - Present'
               blurb='Figma | TypeScript | SCSS | Next.js | SendGrid | MaterialUI-Base'
-              link='/professional/eagle-eye'
-            /> */}
+              // link='/professional/eagle-eye'
+              tools={['Next.js', 'TypeScript', 'SCSS', 'Figma', 'MUI Base-UI']}
+              buttons={[{
+                text:'View Figma Prototype',
+                variant:'outlined',
+                link:'https://www.figma.com/proto/wBBFOjAFeAkFhYMBuMIgsd/Eagle-Eye-Monitoring-Site?type=design&node-id=4-2&t=V68KdUeWL6SkpupE-1&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=4%3A2&mode=design',
+                linkTo:'details'
+              }, {
+                text:'View Github',
+                variant:'outlined',
+                link:'https://github.com/arifire21/eagle-eye-site',
+                linkTo:'github'
+              }
+            ]}
+            />
+          </div>
 
             {/* <WorkCard
               // logo={LEILogo}
@@ -205,7 +232,7 @@ export default function Home() {
               blurb='React.js | JavaScript | React-Bootstrap | JSON | CD/CI (Heroku)'
               link='/professional/loucks-eng'
             /> */}
-
+            <div className={styles.cardContainer}>
             <WorkCard
               // logo={SilviLogo}
               position='Front-End Web Developer'
@@ -214,74 +241,100 @@ export default function Home() {
               duration='Jun 2022 - Jul 2023'
               blurb='Silvi is a web-app that allows for users to track reforestation progress and interact with the community.'
               // link='/professional/silvi'
-              tools={['Next.js', 'TypeScript', 'SCSS', 'React-Bootstrap', 'Jira (Agile)']}
+              tools={['Next.js', 'TypeScript', 'SCSS', 'React-Bootstrap', 'Jira (Agile)', 'Github-CodeSpaces']}
               buttons={[{
-                          text:'View Live Site',
-                          variant:'solid',
-                          link:'https://www.silvi.earth/',
-                          linkTo:'site'
-                      }]}
+                text:'Visit Site',
+                variant:'solid',
+                link:'https://www.silvi.earth/',
+                linkTo:'site'
+              }]}
             />
+            </div>
 
-            <WorkCard
-              // logo={JustLearnLogo}
-              position='Front-End Web Developer'
-              company='JustLearn'
-              jobType='Internship & Part-Time (Remote)'
-              duration='Nov 2021 - June 2022'
-              blurb='Django | HTML5 | SCSS | JavaScript | Python | jQuery | Web APIs | Bootstrap'
-              // link='/professional/justlearn'
-              tools={['HTML5', 'SCSS', 'JavaScript', 'jQuery/jQueryUI', 'Web APIs', 'Django', 'Python', 'Bootstrap', 'Notion']}
-            />
-        {/* </div> */}
+            <div className={styles.cardContainer}>
+              <WorkCard
+                // logo={JustLearnLogo}
+                position='Front-End Web Developer'
+                company='JustLearn'
+                jobType='Internship & Part-Time (Remote)'
+                duration='Nov 2021 - June 2022'
+                blurb='Django | HTML5 | SCSS | JavaScript | Python | jQuery | Web APIs | Bootstrap'
+                // link='/professional/justlearn'
+                tools={['HTML5', 'SCSS', 'JavaScript', 'jQuery/jQueryUI', 'Web APIs', 'Django', 'Python', 'Bootstrap', 'Notion']}
+              />
+            </div>
       </section>
 
-      <section className={styles.genericCenter}
-      // onMouseEnter={() => enterNav('s-section')}
-      // onMouseLeave={() => leaveNav('project-section')}
-      >
-        <h1><a id='projects'>Projects</a></h1>
-        {/* <div className={styles.cardContainer}>
+      <section>
+        <h1 className={styles.header}><a id='projects'>Projects</a></h1>
+        <div className={styles.cardContainer}>
+          <ProjectCard
+            projectTitle='Survey Progressive Web App'
+            subtitle='[Alum] FRC Team (Robotics)'
+            date='Nov 2022 - Present'
+            blurb='Creating a progressive web app (PWA) made for a competitive robotics team to streamline both survey during competitions. Establishing version control via a service worker and manifest.'
+            // link='projects/other'
+            tools={['HTML', 'CSS', 'JavaScript']}
+            buttons={[{
+              text:'View GitHub',
+              variant:'solid',
+              link:'https://github.com/arifire21/744-survey-pwa',
+              linkTo:'github'
+            }]}
+          />
+        </div>
+
+        <div className={styles.cardContainer}>
           <ProjectCard
             projectTitle='Discord.js Bot'
-            subtitle=''
             date='Nov 2022 - Present'
-            blurb='Discord.js | Node.js | Axios | WikiMedia API'
-            link='projects/other'
+            blurb='Bot created to present community wiki data.'
+            tools={['Discord.js', 'Node.js', 'Axios', 'WikiMedia API']}
           />
+        </div>
 
-          <ProjectCard
-            projectTitle='Discord.js Bot'
-            subtitle=''
-            date='Nov 2022 - Present'
-            blurb='Discord.js | Node.js | Axios | WikiMedia API'
-            link='projects/other'
-          />
-
+        <div className={styles.cardContainer}>
           <ProjectCard
             projectTitle='Plant Watering Notification System'
             subtitle='Secure IoT Final Project'
             date='Apr - May 2021'
-            blurb='Arduino Wifi 1000 | MailChimp'
-            link='projects/arduino'
+            blurb='Solo project - system created with an Arduino microcontroller that would measure moisture levels in soil.
+            The Arduino would wirelessly trigger a connected mailing service to notify the user if the readings were low.'
+            tools={['Arduino Wifi 1000', 'C++', 'MailChimp']}
+            buttons={[{
+              text:'View Details',
+              variant:'solid',
+              link:'https://youtu.be/0VJrU7v5NAY',
+              linkTo:'details'
+            }]}
           />
+        </div>
 
-          <ProjectCard
+          {/* <ProjectCard
             projectTitle='Discord.js Bot'
             subtitle=''
             date='Nov 2022 - Present'
             blurb='Discord.js | Node.js | Axios | WikiMedia API'
             link='projects/other'
-          />
+          /> */}
 
+        <div  className={styles.cardContainer}>
           <ProjectCard
             projectTitle='Dog-Walking Alarm Clock'
             subtitle='Hands-On Engineering Design Final Project'
             date='Aug - Dec 2020'
-            blurb='Arduino Uno R3 | Solidworks'
-            link='projects/arduino'
-          /> */}
-        {/* </div> */}
+            blurb='Solo project - system created with an Arduino, LCD clock, and motor. The user would enter a target time;
+            once reached, the motor would “wag” the printed tail, and lights would flash as two visual indicators.
+            The skills to prototype, 3D model, prep for 3D printing, and code were all taught through a rigorous course. Projects also required a professionally prepared final presentation.'
+            tools={['Arduino Uno R3', 'C++', 'SolidWorks']}
+            buttons={[{
+              text:'View Details',
+              variant:'solid',
+              link:'https://youtu.be/0VJrU7v5NAY',
+              linkTo:'details'
+            }]}
+          />
+        </div>
       </section>
     </main>
 

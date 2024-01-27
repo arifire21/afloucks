@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '@/styles/globals.css'
-import { CssVarsProvider } from '@mui/joy/styles';
+import { CssVarsProvider, extendTheme } from '@mui/joy/styles';
 import type { Viewport } from 'next'
+import CssBaseline from '@mui/joy/CssBaseline';
+import ThemeRegistry from './theme-registry';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,10 +23,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <CssVarsProvider defaultMode="system">
+    <ThemeRegistry options={{ key: 'joy' }}>
       <html lang="en">
         <body className={inter.className}>{children}</body>
       </html>
-    </CssVarsProvider>
+    </ThemeRegistry>
   )
 }
