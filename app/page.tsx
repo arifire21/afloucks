@@ -72,11 +72,11 @@ export default function Home() {
       <section className={styles.genericCenter}>
         <h1><a id='about'>Arianna Loucks</a></h1>
         <div style={{padding: `0 20%`, textAlign:'center'}}>
-          <p>I'm a programmer and IT graduate inspired by the experimentation and endless creative options that take accompany web development. 
+          <p>I&apos;m a programmer and IT graduate inspired by the experimentation and endless creative options that take accompany web development. 
             I have strong foundations in vanilla HTML/CSS/JS and ReactJS, and am currently using NextJS for multiple projects. 
-            In the past, I've enjoyed contributing to multiple hackathon projects with both front-end and full-stack development.
+            In the past, I&apos;ve enjoyed contributing to multiple hackathon projects with both front-end and full-stack development.
             Outside of coding, I like to work on digital art, Unity projects, and  3D-printing.
-            </p>
+          </p>
         </div>
 
         <h2>What I Use:</h2>
@@ -350,7 +350,7 @@ export default function Home() {
     </section>
 
     <footer>
-      <p>Website made with <span>Next.js</span> and <span>MUI's Joy-UI</span></p>
+      <p>Website made with <span>Next.js</span> and <span>MUI Joy-UI</span></p>
     </footer>
     </>
   )
