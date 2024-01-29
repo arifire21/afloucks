@@ -7,8 +7,9 @@ import { SiFigma, SiHtml5, SiCss3, SiAmazonaws, SiJavascript, SiTypescript, SiRe
 import { FaJava } from 'react-icons/fa';
 import { useEffect } from 'react';
 // import Carousel from '@/components/carousel-test'
+import Carousel from '@/components/slick-carousel'
 
-// import {justLearnImages, silviImages, LeiImages, surveyImages} from './all_image_data'
+import {justLearnImages, silviImages, LeiImages, surveyImages} from './all_image_data'
 
 export default function Home() {
   useEffect(() => {
@@ -188,7 +189,7 @@ export default function Home() {
 
       <section>
         <h1 className={styles.header}><a id='experience'>Professional Experience</a></h1>
-          <div className={styles.sharedCardContainer}>
+          <div className={styles.cardContainer}>
             <WorkCard
               // logo={EagleEyeLogo}
               position='Website Designer and Developer'
@@ -211,10 +212,12 @@ export default function Home() {
               }
             ]}
             />
-          {/* </div> */}
+          </div>
 
-          {/* <div className={styles.cardWithCarouselContainer}> */}
-            {/* <Carousel images={LeiImages} project='Loucks Engineering Inc.'/> */}
+          <div className={styles.cardWithCarouselContainer}>
+            <div className={styles.carouselContainer}>
+            <Carousel images={LeiImages} project='Loucks Engineering Inc.'/>
+            </div>
             <WorkCard
               // logo={LEILogo}
               position='Website Developer'
@@ -231,10 +234,10 @@ export default function Home() {
                 linkTo:'site'
               }]}
             />
-          {/* </div> */}
+          </div>
 
-            {/* <div className={styles.cardWithCarouselContainer}>
-              <Carousel images={silviImages} project='Silvi'/> */}
+            <div className={styles.cardWithCarouselContainer}>
+              <Carousel images={silviImages} project='Silvi'/>
               <WorkCard
                 // logo={SilviLogo}
                 position='Front-End Web Developer'
@@ -251,10 +254,10 @@ export default function Home() {
                   linkTo:'site'
                 }]}
               />
-            {/* </div> */}
+            </div>
 
-            {/* <div className={styles.cardWithCarouselContainer}>
-              <Carousel images={justLearnImages} project='JustLearn'/> */}
+            <div className={styles.cardWithCarouselContainer}>
+              <Carousel images={justLearnImages} project='JustLearn'/>
               <WorkCard
                 // logo={JustLearnLogo}
                 position='Front-End Web Developer'
@@ -270,7 +273,7 @@ export default function Home() {
 
       <section>
         <h1 className={styles.header}><a id='projects'>Projects</a></h1>
-        <div className={styles.sharedCardContainer}>
+        <div className={styles.cardWithCarouselContainer}>
           {/* <Carousel images={surveyImages} project='PWA'/> */}
           <ProjectCard
             projectTitle='Survey Progressive Web App'
@@ -285,9 +288,9 @@ export default function Home() {
               linkTo:'github'
             }]}
           />
-        {/* </div> */}
+        </div>
 
-        {/* <div className={styles.sharedCardContainer}> */}
+        <div className={styles.sharedCardContainer}>
           <ProjectCard
             projectTitle='Discord.js Bot'
             date='Nov 2022 - Present'
