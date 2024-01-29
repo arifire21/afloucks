@@ -101,7 +101,20 @@ export default function Home() {
               <ListItem><SiHtml5 size={25}/>HTML5</ListItem>
               <ListDivider inset='gutter'/>
               <ListItem><SiCss3 size={25}/>CSS/SCSS</ListItem>
-              <ListDivider inset='gutter'/>
+          </List>
+
+          <List
+          orientation='horizontal'
+          variant='outlined'
+          sx={{
+              // flexGrow: 0,
+              mt:'0.5rem',
+              mx: 'auto',
+              '--ListItem-paddingY': '1rem',
+              borderRadius: 'md',
+              width:'fit-content'
+            }}
+            >
               <ListItem><SiPython size={25}/>Python</ListItem>
               <ListDivider inset='gutter'/>
               <ListItem><SiMysql size={25}/>MySQL</ListItem>
@@ -109,6 +122,8 @@ export default function Home() {
               <ListItem><FaJava size={25}/>Java</ListItem>
               <ListDivider inset='gutter'/>
               <ListItem><SiCplusplus size={25}/>C++</ListItem>
+              <ListDivider inset='gutter'/>
+              <ListItem><SiCsharp size={25}/>C#</ListItem>
           </List>
 
         <h3>Frameworks and Tools</h3>
@@ -129,15 +144,28 @@ export default function Home() {
             <ListDivider inset='gutter'/>
             <ListItem><SiNodedotjs size={25}/>Node.js</ListItem>
             <ListDivider inset='gutter'/>
-            <ListItem><SiMui size={25}/>Material UI<Typography level='body-sm'>(MD, Joy, Base)</Typography></ListItem>
-            <ListDivider inset='gutter'/>
-            <ListItem><SiBootstrap size={25}/>Bootstrap</ListItem>
-            <ListDivider inset='gutter'/>
             <ListItem><SiDjango size={25}/>Django</ListItem>
             <ListDivider inset='gutter'/>
             <ListItem><SiAmazonaws size={25}/>AWS<Typography level='body-sm'>(EC2, Lambda)</Typography></ListItem>
             <ListDivider inset='gutter'/>
             <ListItem><SiVisualstudiocode size={25}/>VSCode</ListItem>
+          </List>
+
+          <List
+          orientation='horizontal'
+          variant='outlined'
+          sx={{
+              // flexGrow: 0,
+              mt:'0.5rem',
+              mx: 'auto',
+              '--ListItem-paddingY': '1rem',
+              borderRadius: 'md',
+              width:'fit-content'
+            }}
+            >
+            <ListItem><SiMui size={25}/>Material UI<Typography level='body-sm'>(MD, Joy, Base)</Typography></ListItem>
+            <ListDivider inset='gutter'/>
+            <ListItem><SiBootstrap size={25}/>Bootstrap</ListItem>
           </List>
 
           <h3>Design and Productivity</h3>
@@ -180,8 +208,6 @@ export default function Home() {
                 <ListItem><SiVisualstudio size={25}/>Visual Studio</ListItem>
                 <ListDivider inset='gutter'/>
                 <ListItem><SiUnity size={25}/>Unity<Typography level='body-sm'>(2D)</Typography></ListItem>
-                <ListDivider inset='gutter'/>
-                <ListItem><SiCsharp size={25}/>C#</ListItem>
                 <ListDivider inset='gutter'/>
                 <ListItem><SiArduino size={25}/>Arduino</ListItem>
                 <ListDivider inset='gutter'/>
