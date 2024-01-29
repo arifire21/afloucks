@@ -6,22 +6,9 @@ import Navbar from '@/components/navbar'
 import { SiFigma, SiHtml5, SiCss3, SiAmazonaws, SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiJquery, SiDjango, SiDiscord, SiGithub, SiDevpost, SiLinkedin, SiJira, SiTrello, SiCanva, SiPython, SiMysql, SiOracle, SiNotion, SiGimp, SiMui, SiBootstrap, SiNodedotjs, SiVisualstudiocode, SiVisualstudio, SiCplusplus, SiCsharp, SiUnity, SiArduino, SiCreality } from "react-icons/si";
 import { FaJava } from 'react-icons/fa';
 import { useEffect } from 'react';
-// import EagleEyeLogo from '@/images/eagle-eye/logo_transparent_crop.png'
-// import LEILogo from '@/images/loucks-eng/logo192.png'
-// import SilviLogo from '@/images/silvi/silvi_logo.webp'
-// import JustLearnLogo from '@/images/justlearn/justlearn_logo.webp'
+// import Carousel from '@/components/carousel-test'
 
-
-// function enterNav(section:string){
-//   document.getElementById(section)?.classList.add('active');
-//   console.log(`${section} active`)
-// }
-
-// function leaveNav(section:string){
-//   document.getElementById(section)?.classList.remove('active');
-//   console.log(`${section} not active`)
-
-// }
+// import {justLearnImages, silviImages, LeiImages, surveyImages} from './all_image_data'
 
 export default function Home() {
   useEffect(() => {
@@ -84,7 +71,10 @@ export default function Home() {
 
       <section className={styles.genericCenter}>
         <h1><a id='about'>Arianna Loucks</a></h1>
-        <p>stuff</p>
+        <div style={{padding: `0 4rem`, textAlign:'center'}}>
+          <p>I have 3 years of experience in web development, mainly with ReactJS. I've done work in vanilla JavaScript making custom components and bending styles to my will, but I've also been working in NextJS and Typescript recently.</p>
+          <p>I've experimented with making games as a hobby, along with 3D-printing on an Ender 3 v2.</p>
+        </div>
 
         <h2>What I Use:</h2>
         <h3>Languages</h3>
@@ -127,7 +117,7 @@ export default function Home() {
             mx: 'auto',
             '--ListItem-paddingY': '1rem',
             borderRadius: 'md',
-            width:'fit-content'
+            maxWidth:'fit-content'
           }}
           >
             <ListItem><SiReact size={25}/>React.js</ListItem>
@@ -156,7 +146,7 @@ export default function Home() {
               mx: 'auto',
               '--ListItem-paddingY': '1rem',
               borderRadius: 'md',
-              width:'fit-content'
+              maxWidth:'fit-content'
             }}
             >
               <ListItem><SiFigma size={25}/>Figma</ListItem>
@@ -164,8 +154,6 @@ export default function Home() {
               <ListItem><SiCanva size={25}/>Canva</ListItem>
               <ListDivider inset='gutter'/>
               <ListItem><SiGimp size={25}/>GIMP</ListItem>
-              <ListDivider inset='gutter'/>
-              <ListItem><SiOracle size={25}/>Oracle SQL</ListItem>
               <ListDivider inset='gutter'/>
               <ListItem><SiNotion size={25}/>Notion</ListItem>
               <ListDivider inset='gutter'/>
@@ -181,7 +169,7 @@ export default function Home() {
                 mx: 'auto',
                 '--ListItem-paddingY': '1rem',
                 borderRadius: 'md',
-                width:'fit-content'
+                maxWidth:'fit-content'
               }}
               >
                 <ListItem><SiVisualstudio size={25}/>Visual Studio</ListItem>
@@ -192,25 +180,27 @@ export default function Home() {
                 <ListDivider inset='gutter'/>
                 <ListItem><SiArduino size={25}/>Arduino</ListItem>
                 <ListDivider inset='gutter'/>
+                {/* <ListItem><SiOracle size={25}/>Oracle SQL</ListItem>
+              <ListDivider inset='gutter'/> */}
                 <ListItem><SiCreality size={30}/>3D Printing</ListItem>
               </List>
       </section>
 
       <section>
         <h1 className={styles.header}><a id='experience'>Professional Experience</a></h1>
-          <div className={styles.cardContainer}>
+          <div className={styles.sharedCardContainer}>
             <WorkCard
               // logo={EagleEyeLogo}
               position='Website Designer and Developer'
               company='Eagle Eye Monitoring, LLC.'
               jobType='Freelance (Remote)'
               duration='Nov 2023 - Present'
-              blurb='Figma | TypeScript | SCSS | Next.js | SendGrid | MaterialUI-Base'
+              blurb='Website for parking enforcement company.'
               // link='/professional/eagle-eye'
               tools={['Next.js', 'TypeScript', 'SCSS', 'Figma', 'MUI Base-UI']}
               buttons={[{
                 text:'View Figma Prototype',
-                variant:'outlined',
+                variant:'solid',
                 link:'https://www.figma.com/proto/wBBFOjAFeAkFhYMBuMIgsd/Eagle-Eye-Monitoring-Site?type=design&node-id=4-2&t=V68KdUeWL6SkpupE-1&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=4%3A2&mode=design',
                 linkTo:'details'
               }, {
@@ -221,44 +211,57 @@ export default function Home() {
               }
             ]}
             />
-          </div>
+          {/* </div> */}
 
-            {/* <WorkCard
+          {/* <div className={styles.cardWithCarouselContainer}> */}
+            {/* <Carousel images={LeiImages} project='Loucks Engineering Inc.'/> */}
+            <WorkCard
               // logo={LEILogo}
               position='Website Developer'
               company='Loucks Engineering, Inc.'
               jobType='Part-Time'
-              duration='May 2023 - Present'
-              blurb='React.js | JavaScript | React-Bootstrap | JSON | CD/CI (Heroku)'
-              link='/professional/loucks-eng'
-            /> */}
-            <div className={styles.cardContainer}>
-            <WorkCard
-              // logo={SilviLogo}
-              position='Front-End Web Developer'
-              company='Silvi'
-              jobType='Part-Time (Remote)'
-              duration='Jun 2022 - Jul 2023'
-              blurb='Silvi is a web-app that allows for users to track reforestation progress and interact with the community.'
-              // link='/professional/silvi'
-              tools={['Next.js', 'TypeScript', 'SCSS', 'React-Bootstrap', 'Jira (Agile)', 'Github-CodeSpaces']}
+              duration='May 2023 - July 2023'
+              blurb='Website for consulting engineering firm, using React-Router-v6 and React-Bootstrap.'
+              // link='/professional/loucks-eng'
+              tools={['React.js', 'JavaScript', 'JSON', 'React-Bootstrap', 'Heroku']}
               buttons={[{
                 text:'Visit Site',
                 variant:'solid',
-                link:'https://www.silvi.earth/',
+                link:'https://www.louckseng.com/',
                 linkTo:'site'
               }]}
             />
-            </div>
+          {/* </div> */}
 
-            <div className={styles.cardContainer}>
+            {/* <div className={styles.cardWithCarouselContainer}>
+              <Carousel images={silviImages} project='Silvi'/> */}
+              <WorkCard
+                // logo={SilviLogo}
+                position='Front-End Web Developer'
+                company='Silvi'
+                jobType='Part-Time (Remote)'
+                duration='Jun 2022 - Jul 2023'
+                blurb='Silvi is a web-app that allows for users to track reforestation progress and interact with the community [finish].'
+                // link='/professional/silvi'
+                tools={['Next.js', 'TypeScript', 'SCSS', 'React-Bootstrap', 'Jira (Agile)', 'Github-CodeSpaces']}
+                buttons={[{
+                  text:'Visit Site',
+                  variant:'solid',
+                  link:'https://www.silvi.earth/',
+                  linkTo:'site'
+                }]}
+              />
+            {/* </div> */}
+
+            {/* <div className={styles.cardWithCarouselContainer}>
+              <Carousel images={justLearnImages} project='JustLearn'/> */}
               <WorkCard
                 // logo={JustLearnLogo}
                 position='Front-End Web Developer'
                 company='JustLearn'
                 jobType='Internship & Part-Time (Remote)'
                 duration='Nov 2021 - June 2022'
-                blurb='Django | HTML5 | SCSS | JavaScript | Python | jQuery | Web APIs | Bootstrap'
+                blurb='JustLearn was started with the goal of teaching students about environmental sustainability. [work done]'
                 // link='/professional/justlearn'
                 tools={['HTML5', 'SCSS', 'JavaScript', 'jQuery/jQueryUI', 'Web APIs', 'Django', 'Python', 'Bootstrap', 'Notion']}
               />
@@ -267,13 +270,13 @@ export default function Home() {
 
       <section>
         <h1 className={styles.header}><a id='projects'>Projects</a></h1>
-        <div className={styles.cardContainer}>
+        <div className={styles.sharedCardContainer}>
+          {/* <Carousel images={surveyImages} project='PWA'/> */}
           <ProjectCard
             projectTitle='Survey Progressive Web App'
             subtitle='[Alum] FRC Team (Robotics)'
             date='Nov 2022 - Present'
             blurb='Creating a progressive web app (PWA) made for a competitive robotics team to streamline both survey during competitions. Establishing version control via a service worker and manifest.'
-            // link='projects/other'
             tools={['HTML', 'CSS', 'JavaScript']}
             buttons={[{
               text:'View GitHub',
@@ -282,21 +285,34 @@ export default function Home() {
               linkTo:'github'
             }]}
           />
-        </div>
+        {/* </div> */}
 
-        <div className={styles.cardContainer}>
+        {/* <div className={styles.sharedCardContainer}> */}
           <ProjectCard
             projectTitle='Discord.js Bot'
             date='Nov 2022 - Present'
             blurb='Bot created to present community wiki data.'
             tools={['Discord.js', 'Node.js', 'Axios', 'WikiMedia API']}
           />
-        </div>
 
-        <div className={styles.cardContainer}>
+          <ProjectCard
+            projectTitle='Phishooks'
+            date='Jan - May 2023'
+            blurb='Capstone project using VirusTotal API. Designed frontend, including handling API response, conditional rendering, and mobile media rules. Also collaborated with team members to finalize designs and documentation.'
+            tools={['React.JS', 'React-Bootstrap', 'Figma', 'VirusTotal API']}
+            buttons={[{
+              text:'View GitHub',
+              variant:'solid',
+              link:'https://github.com/arifire21/phishooks',
+              linkTo:'github'
+            }]}
+          />
+        {/* </div> */}
+
+        {/* <div className={styles.cardContainer}> */}
           <ProjectCard
             projectTitle='Plant Watering Notification System'
-            subtitle='Secure IoT Final Project'
+            subtitle='Secure Internet of Things (IoT) Final Project'
             date='Apr - May 2021'
             blurb='Solo project - system created with an Arduino microcontroller that would measure moisture levels in soil.
             The Arduino would wirelessly trigger a connected mailing service to notify the user if the readings were low.'
@@ -308,24 +324,16 @@ export default function Home() {
               linkTo:'details'
             }]}
           />
-        </div>
+        {/* </div> */}
 
-          {/* <ProjectCard
-            projectTitle='Discord.js Bot'
-            subtitle=''
-            date='Nov 2022 - Present'
-            blurb='Discord.js | Node.js | Axios | WikiMedia API'
-            link='projects/other'
-          /> */}
-
-        <div  className={styles.cardContainer}>
+        {/* <div  className={styles.cardContainer}> */}
           <ProjectCard
             projectTitle='Dog-Walking Alarm Clock'
             subtitle='Hands-On Engineering Design Final Project'
             date='Aug - Dec 2020'
             blurb='Solo project - system created with an Arduino, LCD clock, and motor. The user would enter a target time;
             once reached, the motor would “wag” the printed tail, and lights would flash as two visual indicators.
-            The skills to prototype, 3D model, prep for 3D printing, and code were all taught through a rigorous course. Projects also required a professionally prepared final presentation.'
+            The skills to prototype, 3D model, prep for 3D printing, and code were all taught through a rigorous course.'
             tools={['Arduino Uno R3', 'C++', 'SolidWorks']}
             buttons={[{
               text:'View Details',
@@ -334,19 +342,20 @@ export default function Home() {
               linkTo:'details'
             }]}
           />
+        {/* </div> */}
         </div>
       </section>
     </main>
 
     <section className='generic-center'>
       <p>Connect with me!</p>
-      <a href='https://github.com/arifire21/' target='_blank'><SiGithub size={25}/>Github</a>
-      <a href='https://www.linkedin.com/in/ariannaloucks/' target='_blank'><SiLinkedin size={25}/>Linkedin</a>
-      <a href='https://devpost.com/afloucks' target='_blank'><SiDevpost size={25}/>Devpost</a>
+      <a href='https://github.com/arifire21/' target='_blank'><SiGithub size={25}/> Github</a>
+      <a href='https://www.linkedin.com/in/ariannaloucks/' target='_blank'><SiLinkedin size={25}/> Linkedin</a>
+      <a href='https://devpost.com/afloucks' target='_blank'><SiDevpost size={25}/> Devpost</a>
     </section>
 
     <footer>
-      <p>Website made with <span>Next.js</span> and <span>MUI's Joy UI</span></p>
+      <p>Website made with <span>Next.js</span> and <span>MUI's Joy-UI</span></p>
     </footer>
     </>
   )

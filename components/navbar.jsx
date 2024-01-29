@@ -18,7 +18,7 @@ export default function Navbar(){
           <div className='flex-other'>
             <DarkModeSwitch/>
 
-            <Button 
+            {/* <Button 
               variant="solid"
               size="md"
               color="primary"
@@ -26,7 +26,7 @@ export default function Navbar(){
               sx={{ ml: 'auto', fontWeight: 600 }}
             >
               <Link href='/contact'>Contact Me <HiArrowRight/></Link>
-            </Button>
+            </Button> */}
           </div>
         </header>
     )

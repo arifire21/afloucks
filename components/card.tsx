@@ -61,7 +61,7 @@ export function WorkCard({position, company, jobType, duration, blurb, tools, bu
             size="md"
             color="primary"
             aria-label={`${company}-${button.linkTo} button`}
-            sx={{ ml: 'auto', fontWeight: 500 }}
+            sx={{ fontWeight: 500 }}
           >
             <Link href={button.link}>{button.text}</Link>
           </Button>
@@ -95,7 +95,7 @@ export function ProjectCard({projectTitle, subtitle, date, blurb, tools, buttons
             size="md"
             color="primary"
             aria-label={`${projectTitle}-${button.linkTo} button`}
-            sx={{ ml:'auto', fontWeight: 500 }}
+            sx={{ fontWeight: 500 }}
           >
             <Link href={button.link}>{button.text}</Link>
           </Button>

@@ -1,0 +1,61 @@
+.carouselContainer {
+    background-color: red;
+    position: relative;
+    height: 100%;
+    width: max-content;
+}
+
+.carouselImage {
+    background-color: #333;
+    object-fit: cover;
+    object-position: center;
+}
+
+.dotContainer {
+    height: fit-content;
+    margin: 0 1rem; 
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 3px;
+    display: inline-block;
+    background-color: gray;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.4s ease-in;
+}
+
+.currentDot {
+    background-color: #4caf50 !important;
+}
+
+.buttonContainer {
+    display: flex;
+    align-items: center;
+    height: fit-content;
+}
+
+.arrowButton {
+    background-color: transparent;
+    color: invert;
+    border: 2px solid #4caf50;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    transition-property: background-color;
+    transition-duration: 0.4;
+}
+
+.dot.hover {
+    filter: brightness(80%);
+}
+
+.arrowButton.hover {
+    background-color: lightgray;
+}
+
+.arrowButton:active, .dot:active {
+    filter: brightness(70%)
+}
