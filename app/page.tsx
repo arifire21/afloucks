@@ -107,7 +107,6 @@ export default function Home() {
           orientation='horizontal'
           variant='outlined'
           sx={{
-              // flexGrow: 0,
               mt:'0.5rem',
               mx: 'auto',
               '--ListItem-paddingY': '1rem',
@@ -131,7 +130,6 @@ export default function Home() {
         orientation='horizontal'
         variant='outlined'
         sx={{
-            // flexGrow: 0,
             mx: 'auto',
             '--ListItem-paddingY': '1rem',
             borderRadius: 'md',
@@ -155,7 +153,6 @@ export default function Home() {
           orientation='horizontal'
           variant='outlined'
           sx={{
-              // flexGrow: 0,
               mt:'0.5rem',
               mx: 'auto',
               '--ListItem-paddingY': '1rem',
@@ -173,7 +170,6 @@ export default function Home() {
           orientation='horizontal'
           variant='outlined'
           sx={{
-              // flexGrow: 0,
               mx: 'auto',
               '--ListItem-paddingY': '1rem',
               borderRadius: 'md',
@@ -183,8 +179,6 @@ export default function Home() {
               <ListItem><SiFigma size={25}/>Figma</ListItem>
               <ListDivider inset='gutter'/>
               <ListItem><SiCanva size={25}/>Canva</ListItem>
-              <ListDivider inset='gutter'/>
-              <ListItem><SiGimp size={25}/>GIMP</ListItem>
               <ListDivider inset='gutter'/>
               <ListItem><SiNotion size={25}/>Notion</ListItem>
               <ListDivider inset='gutter'/>
@@ -196,7 +190,6 @@ export default function Home() {
             orientation='horizontal'
             variant='outlined'
             sx={{
-                // flexGrow: 0,
                 mx: 'auto',
                 '--ListItem-paddingY': '1rem',
                 borderRadius: 'md',
@@ -204,6 +197,8 @@ export default function Home() {
               }}
               >
                 <ListItem><SiMongodb size={25}/>MongoDB</ListItem>
+                <ListDivider inset='gutter'/>
+                <ListItem><SiGimp size={25}/>GIMP</ListItem>
                 <ListDivider inset='gutter'/>
                 <ListItem><SiVisualstudio size={25}/>Visual Studio</ListItem>
                 <ListDivider inset='gutter'/>
@@ -329,6 +324,13 @@ export default function Home() {
             }]}
           />
         {/* </div> */}
+
+        <ProjectCard
+            projectTitle='Discord.js Bot'
+            date='Nov 2022 - Present'
+            blurb='Bot created to present community wiki data.'
+            tools={['Discord.js', 'Node.js', 'Axios', 'WikiMedia API', 'AWS (EC2)']}
+        />
 
         {/* <div className={styles.cardContainer}> */}
           <ProjectCard
