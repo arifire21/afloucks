@@ -53,7 +53,7 @@ export function WorkCard({position, company, jobType, duration, blurb, tools, bu
         ))}
         </div>
 
-        <CardActions>
+        <CardActions buttonFlex="0 1 120px">
         {buttons?.map((button) => (
           <Button 
             key={`${company}-${button.linkTo}`}
@@ -87,7 +87,7 @@ export function ProjectCard({projectTitle, subtitle, date, blurb, tools, buttons
         ))}
         </div>
 
-        <CardActions>
+        <CardActions buttonFlex="0 1 120px">
         {buttons?.map((button) => (
           <Button 
             key={`${projectTitle}-${button.linkTo}`}

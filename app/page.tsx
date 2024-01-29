@@ -3,7 +3,7 @@ import styles from '@/styles/page.module.css'
 import {WorkCard, ProjectCard} from '@/components/card'
 import { List, ListDivider, ListItem, Typography } from '@mui/joy'
 import Navbar from '@/components/navbar'
-import { SiFigma, SiHtml5, SiCss3, SiAmazonaws, SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiJquery, SiDjango, SiDiscord, SiGithub, SiDevpost, SiLinkedin, SiJira, SiTrello, SiCanva, SiPython, SiMysql, SiOracle, SiNotion, SiGimp, SiMui, SiBootstrap, SiNodedotjs, SiVisualstudiocode, SiVisualstudio, SiCplusplus, SiCsharp, SiUnity, SiArduino, SiCreality } from "react-icons/si";
+import { SiFigma, SiHtml5, SiCss3, SiAmazonaws, SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiJquery, SiDjango, SiDiscord, SiGithub, SiDevpost, SiLinkedin, SiJira, SiTrello, SiCanva, SiPython, SiMysql, SiOracle, SiNotion, SiGimp, SiMui, SiBootstrap, SiNodedotjs, SiVisualstudiocode, SiVisualstudio, SiCplusplus, SiCsharp, SiUnity, SiArduino, SiCreality, SiMongodb } from "react-icons/si";
 import { FaJava } from 'react-icons/fa';
 import { useEffect } from 'react';
 // import Carousel from '@/components/carousel-test'
@@ -71,9 +71,12 @@ export default function Home() {
 
       <section className={styles.genericCenter}>
         <h1><a id='about'>Arianna Loucks</a></h1>
-        <div style={{padding: `0 4rem`, textAlign:'center'}}>
-          <p>I have 3 years of experience in web development, mainly with ReactJS. I've done work in vanilla JavaScript making custom components and bending styles to my will, but I've also been working in NextJS and Typescript recently.</p>
-          <p>I've experimented with making games as a hobby, along with 3D-printing on an Ender 3 v2.</p>
+        <div style={{padding: `0 20%`, textAlign:'center'}}>
+          <p>I'm a programmer and IT graduate inspired by the experimentation and endless creative options that take accompany web development. 
+            I have strong foundations in vanilla HTML/CSS/JS and ReactJS, and am currently using NextJS for multiple projects. 
+            In the past, I've enjoyed contributing to multiple hackathon projects with both front-end and full-stack development.
+            Outside of coding, I like to work on digital art, Unity projects, and  3D-printing.
+            </p>
         </div>
 
         <h2>What I Use:</h2>
@@ -172,6 +175,8 @@ export default function Home() {
                 maxWidth:'fit-content'
               }}
               >
+                <ListItem><SiMongodb size={25}/>MongoDB</ListItem>
+                <ListDivider inset='gutter'/>
                 <ListItem><SiVisualstudio size={25}/>Visual Studio</ListItem>
                 <ListDivider inset='gutter'/>
                 <ListItem><SiUnity size={25}/>Unity<Typography level='body-sm'>(2D)</Typography></ListItem>
@@ -222,7 +227,6 @@ export default function Home() {
               jobType='Part-Time'
               duration='May 2023 - July 2023'
               blurb='Website for consulting engineering firm, using React-Router-v6 and React-Bootstrap.'
-              // link='/professional/loucks-eng'
               tools={['React.js', 'JavaScript', 'JSON', 'React-Bootstrap', 'Heroku']}
               buttons={[{
                 text:'Visit Site',
@@ -241,9 +245,8 @@ export default function Home() {
                 company='Silvi'
                 jobType='Part-Time (Remote)'
                 duration='Jun 2022 - Jul 2023'
-                blurb='Silvi is a web-app that allows for users to track reforestation progress and interact with the community [finish].'
-                // link='/professional/silvi'
-                tools={['Next.js', 'TypeScript', 'SCSS', 'React-Bootstrap', 'Jira (Agile)', 'Github-CodeSpaces']}
+                blurb='Silvi is a web-app that allows for users to track reforestation progress and interact with the community. Focused on a mobile-first approach, improved profile and asset management UX. Rebuilt in-browser camera components that used conditional rendering.'
+                tools={['Mobile-first development', 'Next.js', 'TypeScript', 'SCSS', 'React-Bootstrap', 'Jira (Agile)', 'Github-CodeSpaces']}
                 buttons={[{
                   text:'Visit Site',
                   variant:'solid',
@@ -261,9 +264,8 @@ export default function Home() {
                 company='JustLearn'
                 jobType='Internship & Part-Time (Remote)'
                 duration='Nov 2021 - June 2022'
-                blurb='JustLearn was started with the goal of teaching students about environmental sustainability. [work done]'
-                // link='/professional/justlearn'
-                tools={['HTML5', 'SCSS', 'JavaScript', 'jQuery/jQueryUI', 'Web APIs', 'Django', 'Python', 'Bootstrap', 'Notion']}
+                blurb='JustLearn was started with the goal of teaching students about environmental sustainability. To streamline logging of trees, created in-browser camera functionality in vanilla JS, using Geolocation and getUserMedia APIs. Also modified Django models/views, and customized generated forms.'
+                tools={['Mobile-first development', 'HTML5', 'SCSS', 'JavaScript', 'jQuery/jQueryUI', 'Web APIs', 'Django', 'Python', 'Bootstrap', 'Notion']}
               />
             </div>
       </section>
@@ -288,14 +290,7 @@ export default function Home() {
         {/* </div> */}
 
         {/* <div className={styles.sharedCardContainer}> */}
-          <ProjectCard
-            projectTitle='Discord.js Bot'
-            date='Nov 2022 - Present'
-            blurb='Bot created to present community wiki data.'
-            tools={['Discord.js', 'Node.js', 'Axios', 'WikiMedia API']}
-          />
-
-          <ProjectCard
+        <ProjectCard
             projectTitle='Phishooks'
             date='Jan - May 2023'
             blurb='Capstone project using VirusTotal API. Designed frontend, including handling API response, conditional rendering, and mobile media rules. Also collaborated with team members to finalize designs and documentation.'
