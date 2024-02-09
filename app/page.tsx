@@ -6,8 +6,7 @@ import Navbar from '@/components/navbar'
 import { SiFigma, SiHtml5, SiCss3, SiAmazonaws, SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiJquery, SiDjango, SiDiscord, SiGithub, SiDevpost, SiLinkedin, SiJira, SiTrello, SiCanva, SiPython, SiMysql, SiOracle, SiNotion, SiGimp, SiMui, SiBootstrap, SiNodedotjs, SiVisualstudiocode, SiVisualstudio, SiCplusplus, SiCsharp, SiUnity, SiArduino, SiCreality, SiMongodb } from "react-icons/si";
 import { FaJava } from 'react-icons/fa';
 import { useEffect } from 'react';
-// import Carousel from '@/components/carousel-test'
-import Carousel from '@/components/slick-carousel'
+import Carousel from '@/components/carousel'
 
 import {justLearnImages, silviImages, LeiImages, surveyImages} from './all_image_data'
 
@@ -220,8 +219,8 @@ export default function Home() {
           </div>
 
           <div className={styles.cardWithCarouselContainer}>
-            <div className={styles.carouselContainer}>
-            <Carousel images={LeiImages} project='Loucks Engineering Inc.'/>
+            <div className={styles.pageCarouselContainer}>
+              <Carousel images={LeiImages} project='Loucks Engineering Inc.'/>
             </div>
             <WorkCard
               // logo={LEILogo}
@@ -241,14 +240,16 @@ export default function Home() {
           </div>
 
             <div className={styles.cardWithCarouselContainer}>
-              <Carousel images={silviImages} project='Silvi'/>
+              <div className={styles.pageCarouselContainer}>
+                <Carousel images={silviImages} project='Silvi'/>
+              </div>
               <WorkCard
                 // logo={SilviLogo}
                 position='Front-End Web Developer'
                 company='Silvi'
                 jobType='Part-Time (Remote)'
                 duration='Jun 2022 - Jul 2023'
-                blurb='Silvi is a web-app that allows for users to track reforestation progress and interact with the community. Focused on a mobile-first approach, improved profile and asset management UX. Rebuilt in-browser camera components that used conditional rendering.'
+                blurb='Silvi is a web-app that allows for users to track reforestation progress and interact with the community. Focused on a mobile-first approach, improved profile and asset management UX. Rebuilt in-browser camera components, focal points of the app, that used conditional rendering.'
                 tools={['Mobile-first development', 'Next.js', 'TypeScript', 'SCSS', 'React-Bootstrap', 'Jira (Agile)', 'Github-CodeSpaces']}
                 buttons={[{
                   text:'Visit Site',
@@ -260,7 +261,9 @@ export default function Home() {
             </div>
 
             <div className={styles.cardWithCarouselContainer}>
-              <Carousel images={justLearnImages} project='JustLearn'/>
+              <div className={styles.pageCarouselContainer}>
+                <Carousel images={justLearnImages} project='JustLearn'/>
+              </div>
               <WorkCard
                 // logo={JustLearnLogo}
                 position='Front-End Web Developer'
@@ -276,7 +279,9 @@ export default function Home() {
       <section>
         <h1 className={styles.header}><a id='projects'>Projects</a></h1>
         <div className={styles.cardWithCarouselContainer}>
-          {/* <Carousel images={surveyImages} project='PWA'/> */}
+          <div className={styles.pageCarouselContainer}>
+            <Carousel images={surveyImages} project='PWA'/>
+          </div>
           <ProjectCard
             projectTitle='Survey Progressive Web App'
             subtitle='[Alum] FRC Team (Robotics)'
@@ -302,7 +307,7 @@ export default function Home() {
 
           <ProjectCard
             projectTitle='Phishooks'
-            date='Jan - May 2023'
+            date='Jan 2023 - May 2023'
             blurb='Capstone project using VirusTotal API. Designed frontend, including handling API response, conditional rendering, and mobile media rules. Also collaborated with team members to finalize designs and documentation.'
             tools={['React.JS', 'React-Bootstrap', 'Figma', 'VirusTotal API']}
             buttons={[{
@@ -318,7 +323,7 @@ export default function Home() {
           <ProjectCard
             projectTitle='Plant Watering Notification System'
             subtitle='Secure Internet of Things (IoT) Final Project'
-            date='Apr - May 2021'
+            date='Apr 2021 - May 2021'
             blurb='Solo project - system created with an Arduino microcontroller that would measure moisture levels in soil.
             The Arduino would wirelessly trigger a connected mailing service to notify the user if the readings were low.'
             tools={['Arduino Wifi 1000', 'C++', 'MailChimp']}
@@ -335,7 +340,7 @@ export default function Home() {
           <ProjectCard
             projectTitle='Dog-Walking Alarm Clock'
             subtitle='Hands-On Engineering Design Final Project'
-            date='Aug - Dec 2020'
+            date='Aug 2020 - Dec 2020'
             blurb='Solo project - system created with an Arduino, LCD clock, and motor. The user would enter a target time;
             once reached, the motor would “wag” the printed tail, and lights would flash as two visual indicators.
             The skills to prototype, 3D model, prep for 3D printing, and code were all taught through a rigorous course.'

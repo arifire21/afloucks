@@ -1,14 +1,21 @@
-.carouselContainer {
-    background-color: red;
+.imageContainer {
     position: relative;
     height: 100%;
-    width: max-content;
+    width: 100%;
 }
 
+/* @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  } */
+
 .carouselImage {
-    background-color: #333;
-    object-fit: cover;
-    object-position: center;
+    /* background-color: rgb(170, 170, 170); */
+    background-color: gray;
+    border-radius: 10px;
+    transition: all 0.5s fade;
+    pointer-events: none;
+    /* animation: fadeIn 5s;  */
 }
 
 .dotContainer {
@@ -23,8 +30,8 @@
     display: inline-block;
     background-color: gray;
     border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.4s ease-in;
+    /* cursor: pointer; */
+    transition: background-color 0.3s ease-in;
 }
 
 .currentDot {
@@ -35,6 +42,7 @@
     display: flex;
     align-items: center;
     height: fit-content;
+    margin: 0 auto;
 }
 
 .arrowButton {
@@ -42,19 +50,25 @@
     color: invert;
     border: 2px solid #4caf50;
     border-radius: 50%;
-    padding: 10px;
+    padding: 5px;
     cursor: pointer;
     transition-property: background-color;
-    transition-duration: 0.4;
+    transition-duration: 0.2s;
 }
 
-.dot.hover {
+.arrowButton:hover {
+    background-color: rgba(129, 199, 132, 0.568);
+}
+
+.arrowButton:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    border-color: rgba(76, 175, 80, 0.7);
+}
+
+/* .dot:hover {
     filter: brightness(80%);
-}
-
-.arrowButton.hover {
-    background-color: lightgray;
-}
+} */
 
 .arrowButton:active, .dot:active {
     filter: brightness(70%)

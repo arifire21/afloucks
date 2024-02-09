@@ -4,15 +4,21 @@ import Button from '@mui/joy/Button'
 import Link from 'next/link'
 
 export default function Navbar(){
+
+  function customScroll(id){
+    console.log(id)
+    let element = document.getElementById(id)
+    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
+  }
     return(
       
         <header className="navbar">
           <nav className='center-nav'>
-            <a href='#about' className='nav-item' id='about-nav' aria-label="About Me section nav">About Me</a>
+            <a className='nav-item' id='about-nav' aria-label="About Me section nav" onClick={() => customScroll('about')}>About Me</a>
             <span className='bullet'>&bull;</span>
-            <a href='#experience' className='nav-item' id='experience-nav' aria-label="Experience section nav">Experience</a>
+            <a className='nav-item' id='experience-nav' aria-label="Experience section nav" onClick={() => customScroll('experience')}>Experience</a>
             <span className='bullet'>&bull;</span>
-            <a href='#projects' className='nav-item' id='project-nav' aria-label="Projects section nav">Projects</a>
+            <a className='nav-item' id='project-nav' aria-label="Projects section nav" onClick={() => customScroll('projects')}>Projects</a>
           </nav>
 
           <div className='flex-other'>
