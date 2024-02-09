@@ -13,6 +13,7 @@ html, body {
 
 body {
   margin: 0;
+  transition: all 0.35s ease-in-out;
 }
 
 footer {
@@ -58,7 +59,7 @@ a {
 }
 
 .navbar{
-  z-index: 2;
+  z-index: 10;
   position: sticky;
   top: 0px;
   height: 80px;

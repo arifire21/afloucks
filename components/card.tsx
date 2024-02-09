@@ -55,16 +55,17 @@ export function WorkCard({position, company, jobType, duration, blurb, tools, bu
 
         <CardActions buttonFlex="0 1 120px">
         {buttons?.map((button) => (
-          <Button 
-            key={`${company}-${button.linkTo}`}
-            variant={button.variant}
-            size="md"
-            color="primary"
-            aria-label={`${company}-${button.linkTo} button`}
-            sx={{ fontWeight: 500 }}
-          >
-            <Link href={button.link}>{button.text}</Link>
-          </Button>
+          <Link href={button.link} key={`${company}-${button.linkTo}`}>
+            <Button 
+              variant={button.variant}
+              size="md"
+              color="primary"
+              aria-label={`${company}-${button.linkTo} button`}
+              sx={{ fontWeight: 500 }}
+            >
+              {button.text}
+            </Button>
+          </Link>
         ))}
         </CardActions>
       </CardContent>
@@ -89,16 +90,17 @@ export function ProjectCard({projectTitle, subtitle, date, blurb, tools, buttons
 
         <CardActions buttonFlex="0 1 120px">
         {buttons?.map((button) => (
-          <Button 
-            key={`${projectTitle}-${button.linkTo}`}
-            variant={button.variant}
-            size="md"
-            color="primary"
-            aria-label={`${projectTitle}-${button.linkTo} button`}
-            sx={{ fontWeight: 500 }}
-          >
-            <Link href={button.link}>{button.text}</Link>
-          </Button>
+          <Link href={button.link} key={`${projectTitle}-${button.linkTo}`}>
+            <Button
+              variant={button.variant}
+              size="md"
+              color="primary"
+              aria-label={`${projectTitle}-${button.linkTo} button`}
+              sx={{ fontWeight: 500 }}
+            >
+              {button.text}
+            </Button>
+          </Link>
         ))}
         </CardActions>
 
