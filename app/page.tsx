@@ -340,12 +340,13 @@ export default function Home() {
           />
         {/* </div> */}
 
-        <ProjectCard
+        {/* TODO WHAT IS THIS A PLACEHOLDER FOR */}
+        {/* <ProjectCard
             projectTitle='Discord.js Bot'
             date='Nov 2022 - Present'
             blurb='Bot created to present community wiki data.'
             tools={['Discord.js', 'Node.js', 'Axios', 'WikiMedia API', 'AWS (EC2)']}
-        />
+        /> */}
 
         {/* <div className={styles.cardContainer}> */}
           <ProjectCard
