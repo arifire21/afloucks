@@ -8,7 +8,7 @@ import { FaJava } from 'react-icons/fa';
 import { useEffect } from 'react';
 import Carousel from '@/components/carousel'
 
-import {justLearnImages, silviImages, LeiImages, surveyImages} from './all_image_data'
+import {justLearnImages, silviImages, LeiImages, surveyImages} from './all_image_data.js'
 
 export default function Home() {
   useEffect(() => {
