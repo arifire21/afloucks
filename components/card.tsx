@@ -55,7 +55,7 @@ export function WorkCard({position, company, jobType, duration, blurb, tools, bu
 
         <CardActions buttonFlex="0 1 120px">
         {buttons?.map((button) => (
-          <Link href={button.link} key={`${company}-${button.linkTo}`}>
+          <Link href={button.link} target='_blank' key={`${company}-${button.linkTo}`}>
             <Button 
               variant={button.variant}
               size="md"
@@ -90,7 +90,7 @@ export function ProjectCard({projectTitle, subtitle, date, blurb, tools, buttons
 
         <CardActions buttonFlex="0 1 120px">
         {buttons?.map((button) => (
-          <Link href={button.link} key={`${projectTitle}-${button.linkTo}`}>
+          <Link href={button.link} target='_blank' key={`${projectTitle}-${button.linkTo}`}>
             <Button
               variant={button.variant}
               size="md"
