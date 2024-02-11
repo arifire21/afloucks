@@ -306,7 +306,7 @@ export default function Home() {
           <ProjectCard
             projectTitle='Survey Progressive Web App'
             subtitle='[Alum] FRC Team (Robotics)'
-            date='Nov 2022 - Present'
+            date='Nov 2023 - Present'
             blurb='Creating a progressive web app (PWA) made for a competitive robotics team to streamline both survey during competitions. Establishing version control via a service worker and manifest.'
             tools={['HTML', 'CSS', 'JavaScript']}
             buttons={[{
@@ -319,12 +319,14 @@ export default function Home() {
         </div>
 
         <div className={styles.sharedCardContainer}>
-          <ProjectCard
+                  {/* TODO WHAT IS THIS A PLACEHOLDER FOR */}
+         {/* <ProjectCard
             projectTitle='Discord.js Bot'
             date='Nov 2022 - Present'
             blurb='Bot created to present community wiki data.'
             tools={['Discord.js', 'Node.js', 'Axios', 'WikiMedia API']}
           />
+           */}
 
           <ProjectCard
             projectTitle='Phishooks'
@@ -340,13 +342,12 @@ export default function Home() {
           />
         {/* </div> */}
 
-        {/* TODO WHAT IS THIS A PLACEHOLDER FOR */}
-        {/* <ProjectCard
+        <ProjectCard
             projectTitle='Discord.js Bot'
             date='Nov 2022 - Present'
             blurb='Bot created to present community wiki data.'
             tools={['Discord.js', 'Node.js', 'Axios', 'WikiMedia API', 'AWS (EC2)']}
-        /> */}
+        />
 
         {/* <div className={styles.cardContainer}> */}
           <ProjectCard
