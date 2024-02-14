@@ -6,9 +6,20 @@ import Link from 'next/link'
 export default function Navbar(){
 
   function customScroll(id){
-    console.log(id)
+    // console.log(id)
     let element = document.getElementById(id)
     element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
+
+    //change elem active in navbar since this does not trigger page.js scrolling event
+    //get a that currently has it
+    // let prevActive = document.getElementsByClassName('nav-active')[0]
+    // console.log(prevActive)
+    // prevActive.classList.remove('nav-active')
+    // //replace with arg
+    // element.classList.add('nav-active')
+
+    // console.log(element)
+    // console.log(prevActive)
   }
     return(
       

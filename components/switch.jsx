@@ -12,9 +12,9 @@ export default function DarkModeSwitch(){
     useEffect(() => {
         //'mode' is defaulted to 'system' (before localstorage takes over)
         //detect system pref on load
-        console.log(`${mode}, ${systemMode}`)
+        // console.log(`${mode}, ${systemMode}`)
         if(mode === 'dark' || systemMode === 'dark'){
-            console.log('dark is true')
+            // console.log('dark is true')
             setDark(true)
             setMode('dark') //in case mode is 'system'
         }

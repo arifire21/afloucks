@@ -9,7 +9,7 @@ import ThemeRegistry from './theme-registry';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'A.F.Loucks Portfolio',
+  title: 'A.Loucks Portfolio',
   description: 'Portfolio for professional work and projects [Next App]',
 }
 

@@ -87,6 +87,7 @@ a {
   font-size: unset;
   transition-duration: 0.5s;
   text-shadow: none;
+  cursor: pointer;
 }
 
 .nav-item:hover{
@@ -95,7 +96,7 @@ a {
   transition-duration: 0.3s;
 }
 
-.active {
+.nav-active {
   font-size: 15pt;
   font-weight: 700;
   transition-duration: 0.5s;
@@ -122,7 +123,7 @@ a {
     background-color: #134e13;
   }
 
-  .active{
+  .nav-active{
     text-shadow: #134e13 1px 0 10px;
   }
 } */
@@ -136,7 +137,7 @@ a {
   background-color: #155515;
 }
 
-.active.dark{
+.nav-active.dark{
   text-shadow: #81c784 1px 0 10px;
 } */
 /* } */

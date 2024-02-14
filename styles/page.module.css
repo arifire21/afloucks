@@ -38,6 +38,7 @@
 .header {
   text-align: center;
   margin-top: 2rem;
+  scroll-margin-top: 85px;
 }
 
 @media (max-width:450px) {

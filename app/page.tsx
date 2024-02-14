@@ -17,9 +17,9 @@ export default function Home() {
     let scrollTop = document.body.scrollTop;
   
     //get others
-    let aboutPos = document.getElementById('about')!.offsetTop - 80;
-    let experiencePos = document.getElementById('experience')!.offsetTop -80;
-    let projectPos = document.getElementById('projects')!.offsetTop -80;
+    const aboutPos = document.getElementById('about')!.offsetTop - 86;
+    const experiencePos = document.getElementById('experience')!.offsetTop - 86;
+    const projectPos = document.getElementById('projects')!.offsetTop - 86;
   
     const aboutNav = document.getElementById('about-nav');
     const experienceNav = document.getElementById('experience-nav');
@@ -27,7 +27,7 @@ export default function Home() {
 
     //set default
     if(scrollTop == 0){
-      aboutNav?.classList.add('active')
+      aboutNav?.classList.add('nav-active')
     }
   
     const navActivateCallback = (e: Event) => {
@@ -35,24 +35,24 @@ export default function Home() {
   
       // console.log(`${scrollTop}, aboutPos ${aboutPos}, experiencePos ${experiencePos}, projectPos ${projectPos}`)
       
-      if  ((!aboutNav?.classList.contains('active'))
-          && (scrollTop == 0 || scrollTop > aboutPos && scrollTop < experiencePos)){
-        aboutNav!.classList.add('active');
-        console.log('aboutnav changed')
-        experienceNav!.classList.remove('active');
+      if  ((!aboutNav?.classList.contains('nav-active'))
+          && (scrollTop == 0 || (scrollTop > aboutPos && scrollTop < experiencePos))){
+        aboutNav!.classList.add('nav-active');
+        // console.log('aboutnav changed')
+        experienceNav!.classList.remove('nav-active');
       }
-      else if((!experienceNav?.classList.contains('active'))
-          && (scrollTop > aboutPos && scrollTop > experiencePos && scrollTop < projectPos)){
-        aboutNav!.classList.remove('active');
-        projectNav!.classList.remove('active');
-        experienceNav!.classList.add('active');
-        console.log('expnav changed')
+      else if((!experienceNav?.classList.contains('nav-active'))
+          && (scrollTop > experiencePos && scrollTop < projectPos)){
+        experienceNav!.classList.add('nav-active');
+        aboutNav!.classList.remove('nav-active');
+        projectNav!.classList.remove('nav-active');
+        // console.log('expnav changed')
       }
-      else if((!projectNav?.classList.contains('active'))
+      else if((!projectNav?.classList.contains('nav-active'))
         && (scrollTop > experiencePos && scrollTop > projectPos)){
-        experienceNav!.classList.remove('active');
-        projectNav!.classList.add('active');
-        console.log('projectnav changed')
+        projectNav!.classList.add('nav-active');
+        experienceNav!.classList.remove('nav-active');
+        // console.log('projectnav changed')
       }
     }
   
@@ -70,7 +70,7 @@ export default function Home() {
     <main className={styles.main}>
 
       <section className={styles.genericCenter}>
-        <h1><a id='about'>Arianna Loucks</a></h1>
+        <h1 className={styles.header} id='about'>Arianna Loucks</h1>
         <div style={{padding: `0 20%`, textAlign:'center'}}>
           <p>I&apos;m a programmer and IT graduate inspired by the experimentation and endless creative options that accompanies web development. 
             I have strong foundations in vanilla HTML/CSS/JS and ReactJS, and am currently using NextJS for multiple projects. 
@@ -213,7 +213,7 @@ export default function Home() {
       </section>
 
       <section>
-        <h1 className={styles.header}><a id='experience'>Professional Experience</a></h1>
+        <h1 className={styles.header} id='experience'>Professional Experience</h1>
           <div className={styles.cardContainer}>
             <WorkCard
               // logo={EagleEyeLogo}
@@ -298,7 +298,7 @@ export default function Home() {
       </section>
 
       <section>
-        <h1 className={styles.header}><a id='projects'>Projects</a></h1>
+        <h1 className={styles.header} id='projects'>Projects</h1>
         <div className={styles.cardWithCarouselContainer}>
           <div className={styles.pageCarouselContainer}>
             <Carousel images={surveyImages} project='PWA'/>
