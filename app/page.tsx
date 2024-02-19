@@ -180,6 +180,8 @@ export default function Home() {
               <ListDivider inset='gutter'/>
               <ListItem><SiCanva size={25}/>Canva</ListItem>
               <ListDivider inset='gutter'/>
+              <ListItem><SiJira size={25}/>Jira</ListItem>
+              <ListDivider inset='gutter'/>
               <ListItem><SiNotion size={25}/>Notion</ListItem>
               <ListDivider inset='gutter'/>
               <ListItem><SiTrello size={25}/>Trello</ListItem>
