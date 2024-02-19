@@ -223,7 +223,7 @@ export default function Home() {
               duration='Nov 2023 - Present'
               blurb='Website for parking enforcement company.'
               // link='/professional/eagle-eye'
-              tools={['Next.js', 'TypeScript', 'SCSS', 'Figma', 'MUI Base-UI']}
+              tools={['Next.js', 'TypeScript', 'SCSS', 'Figma', 'MUI Base-UI', 'Vercel']}
               buttons={[{
                 text:'View Figma Prototype',
                 variant:'solid',
@@ -308,7 +308,7 @@ export default function Home() {
             subtitle='[Alum] FRC Team (Robotics)'
             date='Nov 2023 - Present'
             blurb='Creating a progressive web app (PWA) made for a competitive robotics team to streamline both survey during competitions. Establishing version control via a service worker and manifest.'
-            tools={['HTML', 'CSS', 'JavaScript']}
+            tools={['HTML', 'CSS', 'JavaScript', 'MySQL']}
             buttons={[{
               text:'View GitHub',
               variant:'solid',
@@ -395,7 +395,7 @@ export default function Home() {
     </section>
 
     <footer>
-      <p>Website made with <span>Next.js</span> and <span>MUI Joy-UI</span></p>
+      <p>Website made with <span>Next.js</span>, <span>TypeScript</span>, and <span>MUI Joy-UI</span></p>
     </footer>
     </>
   )
