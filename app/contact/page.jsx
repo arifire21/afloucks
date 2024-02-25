@@ -9,7 +9,7 @@ export default function ContactPage(){
             <Navbar/>
             <main style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
             <h1>Contact</h1>
-            <p>Want to get in touch? Send me your info and I'll get back to you!</p>
+            <p>Want to get in touch? Send me your info and I&apos;ll get back to you!</p>
 
             <ContactForm/>
 
