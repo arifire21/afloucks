@@ -1,16 +1,25 @@
 'use client'
 import { Button, FormControl, FormHelperText, FormLabel, Input, Textarea } from "@mui/joy";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Snackbar, { SnackbarOrigin } from '@mui/joy/Snackbar';
 import styles from '@/styles/form.module.css'
 
 export default function ContactForm(){
+    let emailElement : HTMLInputElement;
+    let emailCheckElement: HTMLInputElement;
+    useEffect(() => {
+        //Runs only on the first render, define elements
+        emailElement = document.getElementById('email') as HTMLInputElement;
+        emailCheckElement = document.getElementById('email-check') as HTMLInputElement;
+
+        // const form = document.getElementById('contact-form') as HTMLFormElement;
+      }, []);
+
     const requestData = {
         name: '',
         email:'',
         comment: ''
     }
-    const form = document.getElementById('contact-form') as HTMLFormElement;
 
     //button state
     // const [isDisabled, setDisabled] = useState<boolean>(true)
@@ -54,8 +63,6 @@ export default function ContactForm(){
         }
     }
 
-    const emailElement = document.getElementById('email') as HTMLInputElement;
-    const emailCheckElement = document.getElementById('email-check') as HTMLInputElement;
     function handleEmailChange(e: { target: { value: string; }; }){
         setEmailProps({...emailProps, emailInput: e.target?.value})
 
