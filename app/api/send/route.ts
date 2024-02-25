@@ -3,7 +3,7 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST(request: { json: () => any; }) {
+export async function POST(request:any) {
   try {
     const  body = await request.json()
     const {name, email, comment} = body
@@ -13,7 +13,7 @@ export async function POST(request: { json: () => any; }) {
       to: [email],
       subject: `Hi, from Arianna\'s page!`,
       react: EmailTemplate({ name: name, comment: comment }),
-      text:`Hi, ${name}! Thank you for reaching out! I'll get back to you soon. Here\'s what you wrote: ${comment}`
+      text:`Hi, ${name}! Thank you for reaching out! I\'ll get back to you soon. Here\'s what you wrote: ${comment}`
     });
 
     return Response.json(data);
