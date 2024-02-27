@@ -1,19 +1,24 @@
-import { SiGithub, SiDevpost, SiLinkedin } from "react-icons/si";
+'use client'
+import Navbar from "@/components/navbar";
+import ContactForm from '@/components/form'
+import ContactInfo from '@/components/contact-info'
 
 export default function ContactPage(){
     return(
-        <>
-        <h1>Contact</h1>
-            <p>Want to get in touch? Send me an email at [email]</p>
+        <div style={{minHeight:'100vh'}}>
+            <Navbar/>
+            <main style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
+            <h1>Contact</h1>
+            <p>Want to get in touch? Send me your info and I&apos;ll get back to you!</p>
 
-            <p>[form tbd??]</p>
+            <ContactForm/>
 
-        <section>
-            <p>Or connect with me!</p>
-            <a href='https://github.com/arifire21/' target='_blank'><SiGithub size={25}/>Github</a>
-            <a href='https://devpost.com/afloucks' target='_blank'><SiLinkedin size={25}/>Linkedin</a>
-            <a href='https://github.com/arifire21/' target='_blank'><SiDevpost size={25}/>Devpost</a>
-        </section>
-        </>
+            <ContactInfo/>
+            </main>
+            
+            <footer>
+                <p>Website made with <span>Next.js</span> and <span>MUI Joy-UI</span></p>
+            </footer>
+        </div>
     )
 }

@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import Carousel from '@/components/carousel'
 
 import {justLearnImages, silviImages, LeiImages, surveyImages} from './all_image_data.js'
+import ContactInfo from '@/components/contact-info.jsx'
 
 export default function Home() {
   useEffect(() => {
@@ -67,7 +68,7 @@ export default function Home() {
   return (
     <>
     <Navbar/>
-    <main className={styles.main}>
+    <div className={styles.main}>
 
       <section className={styles.genericCenter}>
         <h1 className={styles.header} id='about'>Arianna Loucks</h1>
@@ -179,6 +180,8 @@ export default function Home() {
               <ListItem><SiFigma size={25}/>Figma</ListItem>
               <ListDivider inset='gutter'/>
               <ListItem><SiCanva size={25}/>Canva</ListItem>
+              <ListDivider inset='gutter'/>
+              <ListItem><SiJira size={25}/>Jira</ListItem>
               <ListDivider inset='gutter'/>
               <ListItem><SiNotion size={25}/>Notion</ListItem>
               <ListDivider inset='gutter'/>
@@ -385,14 +388,9 @@ export default function Home() {
         {/* </div> */}
         </div>
       </section>
-    </main>
+    </div>
 
-    <section className='generic-center'>
-      <p>Connect with me!</p>
-      <a href='https://github.com/arifire21/' target='_blank'><SiGithub size={25}/> Github</a>
-      <a href='https://www.linkedin.com/in/ariannaloucks/' target='_blank'><SiLinkedin size={25}/> Linkedin</a>
-      <a href='https://devpost.com/afloucks' target='_blank'><SiDevpost size={25}/> Devpost</a>
-    </section>
+    <ContactInfo/>
 
     <footer>
       <p>Website made with <span>Next.js</span>, <span>TypeScript</span>, and <span>MUI Joy-UI</span></p>

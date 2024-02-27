@@ -47,11 +47,10 @@ a {
   display: flex;
   /* justify-content: center; */
   align-items: center;
-  margin-left: auto;
+  margin: auto;
 }
 
 .flex-other {
-  margin-left: auto;
   margin-right: 2rem;
   display: flex;
   flex-direction: column;
@@ -75,6 +74,12 @@ a {
 .bullet {
   color: #e5f9e0;
   margin: 1rem;
+}
+
+.contact-bullet {
+  color: invert;
+  margin: 1rem;
+  text-align: center;
 }
 
 .nav-item {
@@ -107,11 +112,14 @@ a {
 }
 
 .chip-container{
-  margin: 0.5rem;
-  margin-left: 0;
+  margin: 0 0.5rem;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
 }
 
 /* @media (prefers-color-scheme: light) {

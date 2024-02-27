@@ -1,7 +1,7 @@
-// import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 // import AspectRatio from '@mui/joy/AspectRatio';
 import { Button, Card, CardContent, CardActions, Typography, Chip } from '@mui/joy';
+import { HiOutlineExternalLink } from "react-icons/hi";
 
 type variantOptions = 'solid' | 'outlined'
 type linkOptions = 'github' | 'site' | 'figma' | 'details'
@@ -53,15 +53,16 @@ export function WorkCard({position, company, jobType, duration, blurb, tools, bu
         ))}
         </div>
 
-        <CardActions buttonFlex="0 1 120px">
+        <CardActions buttonFlex="0 1 130px">
         {buttons?.map((button) => (
           <Link href={button.link} target='_blank' key={`${company}-${button.linkTo}`}>
             <Button 
+              endDecorator={<HiOutlineExternalLink/>}
               variant={button.variant}
               size="md"
               color="primary"
               aria-label={`${company}-${button.linkTo} button`}
-              sx={{ fontWeight: 500 }}
+              sx={{ fontWeight: 500, width:'max-content', padding:'0.375rem 0.5rem' }}
             >
               {button.text}
             </Button>
@@ -92,11 +93,12 @@ export function ProjectCard({projectTitle, subtitle, date, blurb, tools, buttons
         {buttons?.map((button) => (
           <Link href={button.link} target='_blank' key={`${projectTitle}-${button.linkTo}`}>
             <Button
+              endDecorator={<HiOutlineExternalLink/>}
               variant={button.variant}
               size="md"
               color="primary"
               aria-label={`${projectTitle}-${button.linkTo} button`}
-              sx={{ fontWeight: 500 }}
+              sx={{ fontWeight: 500, width:'max-content', padding:'0.375rem 0.5rem' }}
             >
               {button.text}
             </Button>
