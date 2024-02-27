@@ -1,25 +1,14 @@
 'use client'
 import { Button, FormControl, FormHelperText, FormLabel, Input, Textarea } from "@mui/joy";
-import { useEffect, useState } from "react";
-import Snackbar, { SnackbarOrigin } from '@mui/joy/Snackbar';
+import { useEffect, useState, useRef } from "react";
+import Snackbar from '@mui/joy/Snackbar';
 import styles from '@/styles/form.module.css'
 
 export default function ContactForm(){
-    let emailElement : HTMLInputElement;
-    let emailCheckElement: HTMLInputElement;
-    useEffect(() => {
-        //Runs only on the first render, define elements
-        emailElement = document.getElementById('email') as HTMLInputElement;
-        emailCheckElement = document.getElementById('email-check') as HTMLInputElement;
-
-        // const form = document.getElementById('contact-form') as HTMLFormElement;
-      }, []);
-
-    const requestData = {
-        name: '',
-        email:'',
-        comment: ''
-    }
+    // let emailElement : HTMLInputElement;
+    // let emailCheckElement: HTMLInputElement;
+    // const emailRef = useRef<HTMLInputElement>(null);
+    // const emailMatchRef = useRef<HTMLInputElement>(null);
 
     //button state
     // const [isDisabled, setDisabled] = useState<boolean>(true)
@@ -27,74 +16,15 @@ export default function ContactForm(){
 
     //form state
     const [submitSuccess, setSuccess] = useState<boolean>(false)
+    const [nameValue, setNameValue] = useState<string>('')
+    const [emailValue, setEmailValue] = useState<string>('')
+    const [isEmailValid, setisEmailValid] = useState<boolean>(false)
+    const [confirmEmailValue, setConfirmEmailValue] = useState<string>('')
+    const [commentValue, setCommentValue] = useState<string>('')
 
-    const [nameProps, setNameProps] = useState({
-        nameInput: '',
-        isValid: false,
-        isError: false
-    })
-
-    const [emailProps, setEmailProps] = useState({
-        emailInput: '',
-        isValid: false,
-        isError: false
-    })
-
-    const [emailMatchProps, setEmailMatchProps] = useState({
-        matchInput: '',
-        isValid: false,
-        isError: false
-    })
-
-    const [commentProps, setCommentProps] = useState({
-        commentInput: '',
-        isValid: false,
-        isError: false
-    })
-
-    function handleNameChange(e: { target: { value: string; }; }){
-        setNameProps({...nameProps, nameInput: e.target?.value})
-
-        if(e.target.value.length > 2 && !nameProps.isValid){
-            setNameProps({nameInput: e.target?.value, isValid: true, isError: false})
-        }
-        else if (e.target.value.length <= 2 && nameProps.isValid) { //if user backspaces or deletes
-            setNameProps({nameInput: e.target?.value, isValid: false, isError: true})
-        }
-    }
-
-    function handleEmailChange(e: { target: { value: string; }; }){
-        setEmailProps({...emailProps, emailInput: e.target?.value})
-
-        if(emailElement?.checkValidity() && !emailProps.isValid){
-            setEmailProps({emailInput: e.target?.value, isValid: true, isError: false})
-        }
-        else if(emailCheckElement?.checkValidity() && emailProps.isValid) { //if user backspaces or deletes
-            setEmailProps({emailInput: e.target?.value, isValid: false, isError: true})
-        }
-    }
-
-    function handleEmailMatch(e: { target: { value: string; }; }){
-        setEmailMatchProps({...emailMatchProps, matchInput: e.target?.value})
-
-        if(e.target?.value === emailProps.emailInput){
-            setEmailMatchProps({matchInput: e.target?.value, isValid:true, isError: false})
-        }
-        else if (e.target?.value != emailProps.emailInput && emailMatchProps.isValid) { //if user backspaces or deletes
-            setEmailMatchProps({matchInput: e.target?.value, isValid: false, isError: true})
-        }
-    }
-
-    function handleCommentChange(e: { target: { value: string; }; }){
-        setCommentProps({...commentProps, commentInput: e.target?.value})
-
-        if(e.target.value.length >= 10){
-            setCommentProps({commentInput: e.target?.value, isValid: true, isError: false})
-        }
-        else if (e.target.value.length < 10 && commentProps.isValid) { //if user backspaces or deletes
-            setCommentProps({commentInput: e.target?.value, isValid: false, isError: true})
-        }
-    }
+    //snackbar state
+    const [open, setOpen] = useState<boolean>(false)
+    const [errorString, setErrorString] =useState<string>()
 
     async function handleSubmit(event: { preventDefault: () => void; }) {
         event.preventDefault()
@@ -102,44 +32,36 @@ export default function ContactForm(){
 
         // console.log(`${nameProps.nameInput}\n${emailProps.emailInput}\n${emailMatchProps.matchInput}\n${commentProps.commentInput}`)
 
-        requestData.name = nameProps.nameInput
-        requestData.email = emailProps.emailInput
-        requestData.comment = commentProps.commentInput
-        console.log(requestData)
-
         const response = await fetch('/api/send', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(requestData)
+            body: JSON.stringify({
+                name: nameValue,
+                email: emailValue,
+                comment: commentValue
+            })
         })
-        if(response.status === 200){
+        .then((response => {
+            if(!response.ok){
+                return Promise.reject(response)
+            }
+            
             setSuccess(true)
             setOpen(true)
             setLoading(false)
-        }
-        else if(response.status >= 400){
-            setOpen(true)
-            setSuccess(false)
-            setLoading(false)
-            setErrorString('Check the email entered.')
-        }
-        else if(response.status >= 500) {
-            setOpen(true)
-            setSuccess(false)
-            setLoading(false)
-            setErrorString('Resend service error, try again later.')
-        }
-    }
+        }))
+        .catch(error => {
+            console.log(error.json())
+        })
 
-    //snackbar state
-    const [open, setOpen] = useState<boolean>(false)
-    const [errorString, setErrorString] =useState<string>()
+        // if response === 'validation_error'
+    }
 
     function handleClose() {    //back to defaults
         setOpen(false)
-        setSuccess(false)
+        // setSuccess(false)
 
         // //resetting
         // requestData.name = ''
@@ -153,12 +75,23 @@ export default function ContactForm(){
         // setLoading(false)
     }
 
+    function handleEmailTest(e: any){
+        setEmailValue(e.target.value)
+        if(e.target.validity.valid){
+        // if(.test(e.target.value)){
+            // console.log('yes')
+            setisEmailValid(true)
+        } else {
+            setisEmailValid(false)
+        }
+    }
+
     return (
         <form className={styles.formContainer} id="contact-form">
             <FormControl
             required
-            error={nameProps.isError}
-            color={(nameProps.isValid) ? 'neutral' : 'danger'}
+            error={nameValue!.length > 2 ? false : true}
+            color={nameValue!.length > 2 ? 'neutral' : 'danger'}
             sx={{marginBottom: '1rem'}}
             >
                 <FormLabel>Name</FormLabel>
@@ -170,10 +103,10 @@ export default function ContactForm(){
                           transition: 'box-shadow .15s ease-in-out',
                         }
                     }}
-                    onChange={handleNameChange}
-                    color={(nameProps.isValid) ? 'neutral' : 'danger'}
+                    onChange={(e) => setNameValue(e.target.value)}
+                    // color={nameValue!.length > 2 ? 'neutral' : 'danger'}
                 />
-                {!nameProps.isValid ? (
+                {nameValue!.length <= 2 ? (
                 <FormHelperText>
                 Required field
                 </FormHelperText>
@@ -182,9 +115,8 @@ export default function ContactForm(){
 
             <FormControl
             required
-            id='email'
-            error={emailProps.isError}
-            color={(emailProps.isValid) ? 'neutral' : 'danger'}
+            error={isEmailValid ? false : true}
+            color={isEmailValid ? 'neutral' : 'danger'}
             sx={{marginBottom: '1rem'}}
             >
                 <FormLabel>Email Address</FormLabel>
@@ -196,20 +128,20 @@ export default function ContactForm(){
                           transition: 'box-shadow .15s ease-in-out',
                         }
                     }}
-                    onChange={handleEmailChange}
+                    onChange={handleEmailTest}
+                    // ref={emailRef}
                 />
-                {!emailProps.isValid ? (
+                {!isEmailValid ? (
                 <FormHelperText>
-                Enter a valid email
+                Email must be valid: email@example.com
                 </FormHelperText>
                 ) : (null)}
             </FormControl>
 
             <FormControl
             required
-            id='email-check'
-            error={emailMatchProps.isError}
-            color={(emailMatchProps.isValid) ? 'neutral' : 'danger'}
+            error={confirmEmailValue != emailValue ? true : false}
+            color={confirmEmailValue === emailValue ? 'neutral' : 'danger'}
             sx={{marginBottom: '1rem'}}
             >
                 <FormLabel>Confirm Email Address</FormLabel>
@@ -221,9 +153,10 @@ export default function ContactForm(){
                           transition: 'box-shadow .15s ease-in-out',
                         }
                     }}
-                    onChange={handleEmailMatch}
+                    onChange={(e) => setConfirmEmailValue(e.target.value)}
+                    // ref={emailMatchRef}
                 />
-                {!emailMatchProps.isValid ? (
+                {confirmEmailValue != emailValue ? (
                 <FormHelperText>
                 Emails should match
                 </FormHelperText>
@@ -232,8 +165,8 @@ export default function ContactForm(){
 
             <FormControl
             required
-            error={commentProps.isError}
-            color={(commentProps.isValid) ? 'neutral' : 'danger'}
+            error={commentValue!.length >= 10 ? false : true}
+            color={commentValue!.length >= 10 ? 'neutral' : 'danger'}
             // color={nameProps.isValid ? 'success' : 'danger' ?? 'neutral'}
             sx={{marginBottom: '1rem'}}
             >
@@ -246,10 +179,10 @@ export default function ContactForm(){
                             transition: 'box-shadow .15s ease-in-out',
                         }
                     }}
-                    onChange={handleCommentChange}
+                    onChange={(e) => setCommentValue(e.target.value)}
                     // color={(nameProps.isValid) ? 'neutral' : 'danger'}
                 />
-                {!commentProps.isValid ? (
+                {commentValue!.length <= 9 ? (
                 <FormHelperText>
                 Required field
                 </FormHelperText>
@@ -260,18 +193,24 @@ export default function ContactForm(){
                 // type="submit"
                 onClick={handleSubmit}
                 loading={isLoading}
-                disabled={(nameProps.isValid && emailProps.isValid && emailMatchProps.isValid && commentProps.isValid) ? false : true}
+                disabled={(
+                    nameValue.length > 2
+                    && emailValue.length
+                    && confirmEmailValue === emailValue
+                    && commentValue.length >= 10
+                    ) ? false : true}
             >Submit</Button>
 
             <Snackbar
                 variant="solid"
                 color={submitSuccess ? 'success' : 'danger'}
-                autoHideDuration={submitSuccess ? 3000 : 5000}
+                autoHideDuration={submitSuccess ? 3500 : 5000}
                 open={open}
                 onClose={handleClose}
             >
                 {submitSuccess ?
-                `Thank you, ${nameProps.nameInput}! Your info was sent.`
+                `Thank you, ${nameValue}! Your info was sent!
+                Please check your inbox and/or junk folders.`
                 : `Error! ${errorString}`}
             </Snackbar>
         </form>
