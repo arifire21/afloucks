@@ -17,8 +17,50 @@ export async function POST(request:any) {
     });
     
     if(data.error){
-        console.log(data.error)
-        return(Response.json({message: data.error.name}))
+        // console.log(data.error)
+        // return(Response.json({message: data.error.name}))
+        if(data.error.name === 'internal_server_error'){
+          return new Response(
+            JSON.stringify({
+              message: `${data.error.name}: ${data.error.message}`,
+            }),
+            {
+              headers: { 
+                // ...corsHeaders,
+                "Content-Type": "application/json",
+              },
+              status: 500
+            }
+          )
+        }
+
+        if(data.error.name === 'rate_limit_exceeded'){
+          return new Response(
+            JSON.stringify({
+              message: `${data.error.name}: ${data.error.message}`,
+            }),
+            {
+              headers: { 
+                // ...corsHeaders,
+                "Content-Type": "application/json",
+              },
+              status: 429
+            }
+          )
+        }
+
+        return new Response(
+          JSON.stringify({
+            message: `${data.error.name}: ${data.error.message}`,
+          }),
+          {
+            headers: { 
+              // ...corsHeaders,
+              "Content-Type": "application/json",
+            },
+            status: 400
+          }
+        )
       // return Response.json(data.error)
     }
 
@@ -30,12 +72,25 @@ export async function POST(request:any) {
       text:`${name}, ${email}, ${comment}`
     });
     
-    if(dataDev.error){
-        console.log(dataDev.error)
-        return(Response.json({message: dataDev.error.name}))
-      // return Response.json(data.error)
-    }
-    return Response.json(data);
+    // if(dataDev.error){
+    //     console.log(dataDev.error)
+    //     return(Response.json({message: dataDev.error.}))
+    //   // return Response.json(data.error)
+    // }
+    // return Response.json(data);
+
+    return new Response(
+      JSON.stringify({
+        message: "Email sent successfully",
+      }),
+      {
+        headers: { 
+          // ...corsHeaders,
+          "Content-Type": "application/json",
+        },
+        status: 200
+      }
+    )
   } catch (error) {
     // console.log('error: ' + error)
     return Response.json({ error });
