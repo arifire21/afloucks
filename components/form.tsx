@@ -5,10 +5,9 @@ import Snackbar from '@mui/joy/Snackbar';
 import styles from '@/styles/form.module.css'
 
 export default function ContactForm(){
-    // let emailElement : HTMLInputElement;
-    // let emailCheckElement: HTMLInputElement;
     // const emailRef = useRef<HTMLInputElement>(null);
     // const emailMatchRef = useRef<HTMLInputElement>(null);
+    const formRef = useRef<HTMLFormElement>(null);
 
     //button state
     // const [isDisabled, setDisabled] = useState<boolean>(true)
@@ -30,8 +29,6 @@ export default function ContactForm(){
         event.preventDefault()
         setLoading(true)
 
-        // console.log(`${nameProps.nameInput}\n${emailProps.emailInput}\n${emailMatchProps.matchInput}\n${commentProps.commentInput}`)
-
         const response = await fetch('/api/send', {
             method: 'POST',
             headers: {
@@ -45,41 +42,44 @@ export default function ContactForm(){
         })
         .then((response => {
             if(!response.ok){
-                return Promise.reject(response)
+                setSuccess(false)
+
+                switch (response.status) {
+                    case 400:
+                        setErrorString('Validation error! Check email address provided.')
+                        break;
+                    case 429:
+                        setErrorString('Rate limited! Please try again later.')
+                        break;
+                    case 500:
+                        setErrorString('Internal server error! Please try again later.')
+                        break;
+                    default:
+                        setErrorString('Error! Please try again.')
+                        break;
+                }
+
+                // return Promise.reject(response)
+            } else {
+                setSuccess(true)
+                formRef.current!.reset();
+                setNameValue('')
+                setEmailValue('')
+                setConfirmEmailValue('')
+                setisEmailValid(false)
+                setCommentValue('')
             }
-            
-            setSuccess(true)
             setOpen(true)
             setLoading(false)
         }))
         .catch(error => {
             console.log(error.json())
         })
-
-        // if response === 'validation_error'
-    }
-
-    function handleClose() {    //back to defaults
-        setOpen(false)
-        // setSuccess(false)
-
-        // //resetting
-        // requestData.name = ''
-        // requestData.email = ''
-        // requestData.comment = ''
-        // form.reset()
-        // setNameProps({nameInput: '', isValid: false, isError: false})
-        // setEmailProps({emailInput: '', isValid: false, isError: false})
-        // setEmailMatchProps({matchInput: '', isValid: false, isError: false})
-        // setCommentProps({commentInput: '', isValid: false, isError: false})
-        // setLoading(false)
     }
 
     function handleEmailTest(e: any){
         setEmailValue(e.target.value)
         if(e.target.validity.valid){
-        // if(.test(e.target.value)){
-            // console.log('yes')
             setisEmailValid(true)
         } else {
             setisEmailValid(false)
@@ -87,7 +87,7 @@ export default function ContactForm(){
     }
 
     return (
-        <form className={styles.formContainer} id="contact-form">
+        <form className={styles.formContainer} ref={formRef}>
             <FormControl
             required
             error={nameValue!.length > 2 ? false : true}
@@ -206,12 +206,13 @@ export default function ContactForm(){
                 color={submitSuccess ? 'success' : 'danger'}
                 autoHideDuration={submitSuccess ? 3500 : 5000}
                 open={open}
-                onClose={handleClose}
+                onClose={() => setOpen(false)}
+                // onUnmount={handleReset}
             >
                 {submitSuccess ?
                 `Thank you, ${nameValue}! Your info was sent!
-                Please check your inbox and/or junk folders.`
-                : `Error! ${errorString}`}
+                Please check your inbox and junk folders.`
+                : `${errorString}`}
             </Snackbar>
         </form>
     )
