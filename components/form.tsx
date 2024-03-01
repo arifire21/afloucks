@@ -87,6 +87,7 @@ export default function ContactForm(){
     }
 
     return (
+        <>
         <form className={styles.formContainer} ref={formRef}>
             <FormControl
             required
@@ -200,20 +201,21 @@ export default function ContactForm(){
                     && commentValue.length >= 10
                     ) ? false : true}
             >Submit</Button>
-
-            <Snackbar
-                variant="solid"
-                color={submitSuccess ? 'success' : 'danger'}
-                autoHideDuration={submitSuccess ? 3500 : 5000}
-                open={open}
-                onClose={() => setOpen(false)}
-                // onUnmount={handleReset}
-            >
-                {submitSuccess ?
-                `Thank you, ${nameValue}! Your info was sent!
-                Please check your inbox and junk folders.`
-                : `${errorString}`}
-            </Snackbar>
         </form>
+
+        <Snackbar
+        variant="solid"
+        color={submitSuccess ? 'success' : 'danger'}
+        autoHideDuration={submitSuccess ? 3500 : 5000}
+        open={open}
+        onClose={() => setOpen(false)}
+        // onUnmount={handleReset}
+        >
+        {submitSuccess ?
+        `Thank you, ${nameValue}! Your info was sent!
+        Please check your inbox and junk folders.`
+        : `${errorString}`}
+        </Snackbar>
+        </>
     )
 }
