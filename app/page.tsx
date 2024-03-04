@@ -307,15 +307,15 @@ export default function Home() {
             <Carousel images={surveyImages} project='PWA'/>
           </div>
           <ProjectCard
-            projectTitle='Survey Progressive Web App'
+            projectTitle='Survey Web App'
             subtitle='[Alum] FRC Team (Robotics)'
             date='Nov 2023 - Present'
-            blurb='Creating a progressive web app (PWA) made for a competitive robotics team to streamline both survey during competitions. Establishing version control via a service worker and manifest.'
-            tools={['HTML', 'CSS', 'JavaScript', 'MySQL']}
+            blurb='Creating a web app made for a competitive robotics team to streamline both survey during competitions.'
+            tools={['Next.js', 'Vercel Postgres', 'MUI Joy-UI', 'CSS', 'JavaScript']}
             buttons={[{
               text:'View GitHub',
               variant:'solid',
-              link:'https://github.com/arifire21/744-survey-pwa',
+              link:'https://github.com/arifire21/744-survey',
               linkTo:'github'
             }]}
           />
