@@ -312,9 +312,16 @@ export default function Home() {
             date='Nov 2023 - Present'
             blurb='Creating a web app made for a competitive robotics team to streamline both survey during competitions.'
             tools={['Next.js', 'Vercel Postgres', 'MUI Joy-UI', 'CSS', 'JavaScript']}
-            buttons={[{
+            buttons={[
+              {
+                text:'View Web App',
+                variant:'solid',
+                link:'https://744-survey.vercel.app',
+                linkTo:'site'
+              },
+              {
               text:'View GitHub',
-              variant:'solid',
+              variant:'outlined',
               link:'https://github.com/arifire21/744-survey',
               linkTo:'github'
             }]}
