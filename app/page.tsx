@@ -315,7 +315,7 @@ export default function Home() {
             buttons={[
               {
               text:'View GitHub',
-              variant:'outlined',
+              variant:'solid',
               link:'https://github.com/arifire21/744-survey',
               linkTo:'github'
             }]}
