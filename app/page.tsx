@@ -317,18 +317,12 @@ export default function Home() {
             projectTitle='Survey Web App'
             subtitle='[Alum] FRC Team (Robotics)'
             date='Nov 2023 - Present'
-            blurb='Creating a web app made for a competitive robotics team to streamline both survey during competitions.'
-            tools={['Next.js', 'Vercel Postgres', 'MUI Joy-UI', 'CSS', 'JavaScript']}
+            blurb='Creating a web app made for a competitive robotics team to streamline survey during competitions.'
+            tools={['Next.js', 'Vercel Postgres', 'Vercel Blob', 'MUI Joy-UI', 'CSS', 'JavaScript']}
             buttons={[
               {
-                text:'View Web App',
-                variant:'solid',
-                link:'https://744-survey.vercel.app',
-                linkTo:'site'
-              },
-              {
               text:'View GitHub',
-              variant:'outlined',
+              variant:'solid',
               link:'https://github.com/arifire21/744-survey',
               linkTo:'github'
             }]}
