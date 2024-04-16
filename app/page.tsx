@@ -223,13 +223,20 @@ export default function Home() {
               position='Website Designer and Developer'
               company='Eagle Eye Monitoring, LLC.'
               jobType='Freelance (Remote)'
-              duration='Nov 2023 - Present'
+              duration='Nov 2023 - Apr 2024'
               blurb='Website for parking enforcement company.'
               // link='/professional/eagle-eye'
-              tools={['Next.js', 'TypeScript', 'SCSS', 'Figma', 'MUI Base-UI', 'Vercel']}
-              buttons={[{
-                text:'View Figma Prototype',
+              tools={['Next.js', 'TypeScript', 'SCSS', 'Figma', 'MUI Base-UI', 'Vercel', 'Resend', 'React-Email']}
+              buttons={[
+              {
+                text:'Visit Site',
                 variant:'solid',
+                link:'https://www.eemonitoringllc.com/',
+                linkTo:'site'
+              },
+              {
+                text:'View Figma Prototype',
+                variant:'outlined',
                 link:'https://www.figma.com/proto/wBBFOjAFeAkFhYMBuMIgsd/Eagle-Eye-Monitoring-Site?type=design&node-id=4-2&t=V68KdUeWL6SkpupE-1&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=4%3A2&mode=design',
                 linkTo:'details'
               }, {

@@ -1,9 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '@/styles/globals.css'
-import { CssVarsProvider, extendTheme } from '@mui/joy/styles';
 import type { Viewport } from 'next'
-import CssBaseline from '@mui/joy/CssBaseline';
 import ThemeRegistry from './theme-registry';
 
 const inter = Inter({ subsets: ['latin'] })
