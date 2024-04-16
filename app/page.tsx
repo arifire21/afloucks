@@ -321,6 +321,12 @@ export default function Home() {
             tools={['Next.js', 'Vercel Postgres', 'Vercel Blob', 'MUI Joy-UI', 'CSS', 'JavaScript']}
             buttons={[
               {
+                text:'Visit Site',
+                variant:'solid',
+                link:'https://744-survey.vercel.app/',
+                linkTo:'site'
+              },
+              {
               text:'View GitHub',
               variant:'solid',
               link:'https://github.com/arifire21/744-survey',
