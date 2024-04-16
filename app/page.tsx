@@ -328,7 +328,7 @@ export default function Home() {
               },
               {
               text:'View GitHub',
-              variant:'solid',
+              variant:'outlined',
               link:'https://github.com/arifire21/744-survey',
               linkTo:'github'
             }]}
@@ -395,7 +395,7 @@ export default function Home() {
             buttons={[{
               text:'View Details',
               variant:'solid',
-              link:'https://youtu.be/0VJrU7v5NAY',
+              link:'https://www.instructables.com/Dog-Walking-Alarm-Clock/',
               linkTo:'details'
             }]}
           />
