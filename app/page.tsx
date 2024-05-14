@@ -15,7 +15,7 @@ export default function Home() {
   const desktopMode = document.querySelector('.desktop')
   const mobileMode = document.querySelector('.mobile')
 
-  if(mobileMode){
+  // if(mobileMode){
   useEffect(() => {
     // Function to handle scroll events
     // Get current scroll position
@@ -68,7 +68,7 @@ export default function Home() {
     return () => window.removeEventListener('scroll', navActivateCallback);
   
   }, []);
-}
+// }
 
   return (
     <>
