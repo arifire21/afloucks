@@ -12,6 +12,10 @@ import {justLearnImages, silviImages, LeiImages, surveyImages} from './all_image
 import ContactInfo from '@/components/contact-info.jsx'
 
 export default function Home() {
+  const desktopMode = document.querySelector('.desktop')
+  const mobileMode = document.querySelector('.mobile')
+
+  if(mobileMode){
   useEffect(() => {
     // Function to handle scroll events
     // Get current scroll position
@@ -64,6 +68,7 @@ export default function Home() {
     return () => window.removeEventListener('scroll', navActivateCallback);
   
   }, []);
+}
 
   return (
     <>
@@ -217,7 +222,23 @@ export default function Home() {
 
       <section>
         <h1 className={styles.header} id='experience'>Professional Experience</h1>
-          <div className={styles.cardContainer}>
+          <div className={styles.sharedCardContainer}>
+            <WorkCard
+              position='Website Designer and Developer'
+              company='Oceanside Group Service'
+              jobType='Freelance (Remote)'
+              duration='Apr 2024 - Present'
+              blurb='Website for welding & fabrication company.'
+              tools={['Next.js', 'Figma']}
+            />
+            <WorkCard
+              position='Website Designer and Developer'
+              company='A-1 Property Management Solutions, Inc.'
+              jobType='Freelance (Remote)'
+              duration='Apr 2024 - Present'
+              blurb='Website for property management company.'
+              tools={['Next.js', 'Figma']}
+            />
             <WorkCard
               // logo={EagleEyeLogo}
               position='Website Designer and Developer'
@@ -361,7 +382,7 @@ export default function Home() {
 
         <ProjectCard
             projectTitle='Discord.js Bot'
-            date='Nov 2022 - Present'
+            date='Nov 2022 - May 2023'
             blurb='Bot created to present community wiki data.'
             tools={['Discord.js', 'Node.js', 'Axios', 'WikiMedia API', 'AWS (EC2)']}
         />
