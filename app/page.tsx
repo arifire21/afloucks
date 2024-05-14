@@ -12,63 +12,117 @@ import {justLearnImages, silviImages, LeiImages, surveyImages} from './all_image
 import ContactInfo from '@/components/contact-info.jsx'
 
 export default function Home() {
-  const desktopMode = document.querySelector('.desktop')
-  const mobileMode = document.querySelector('.mobile')
-
-  // if(mobileMode){
   useEffect(() => {
-    // Function to handle scroll events
-    // Get current scroll position
-    let scrollTop = document.body.scrollTop;
-  
-    //get others
-    const aboutPos = document.getElementById('about')!.offsetTop - 86;
-    const experiencePos = document.getElementById('experience')!.offsetTop - 86;
-    const projectPos = document.getElementById('projects')!.offsetTop - 86;
-  
-    const aboutNav = document.getElementById('about-nav');
-    const experienceNav = document.getElementById('experience-nav');
-    const projectNav = document.getElementById('project-nav');
+    if (typeof window != "undefined") {
+      const desktopMode = window.getComputedStyle(document.querySelector<HTMLElement>('.desktop')!).display
+      const mobileMode = window.getComputedStyle(document.querySelector<HTMLElement>('.mobile')!).display
 
-    //set default
-    if(scrollTop == 0){
-      aboutNav?.classList.add('nav-active')
-    }
-  
-    const navActivateCallback = (e: Event) => {
-      scrollTop = document.documentElement.scrollTop
-  
-      // console.log(`${scrollTop}, aboutPos ${aboutPos}, experiencePos ${experiencePos}, projectPos ${projectPos}`)
+      // Function to handle scroll events
+      // Get current scroll position
+      let scrollTop = document.body.scrollTop;
+
+      //get others
+      const aboutPos = document.getElementById('about')!.offsetTop - 86;
+      const experiencePos = document.getElementById('experience')!.offsetTop - 86;
+      const projectPos = document.getElementById('projects')!.offsetTop - 86;
       
-      if  ((!aboutNav?.classList.contains('nav-active'))
-          && (scrollTop == 0 || (scrollTop > aboutPos && scrollTop < experiencePos))){
-        aboutNav!.classList.add('nav-active');
-        // console.log('aboutnav changed')
-        experienceNav!.classList.remove('nav-active');
+      //desktop ver
+      if (desktopMode != 'none') {
+        console.log('d mode')
+      const aboutNav = document.getElementById('about-nav');
+      const experienceNav = document.getElementById('experience-nav');
+      const projectNav = document.getElementById('project-nav');
+
+      //set default
+      if (scrollTop == 0) {
+        aboutNav?.classList.add('nav-active')
       }
-      else if((!experienceNav?.classList.contains('nav-active'))
-          && (scrollTop > experiencePos && scrollTop < projectPos)){
-        experienceNav!.classList.add('nav-active');
-        aboutNav!.classList.remove('nav-active');
-        projectNav!.classList.remove('nav-active');
-        // console.log('expnav changed')
+
+      const navActivateCallback = (e: Event) => {
+        scrollTop = document.documentElement.scrollTop
+
+        // console.log(`${scrollTop}, aboutPos ${aboutPos}, experiencePos ${experiencePos}, projectPos ${projectPos}`)
+
+        if ((!aboutNav?.classList.contains('nav-active'))
+          && (scrollTop == 0 || (scrollTop > aboutPos && scrollTop < experiencePos))) {
+          aboutNav!.classList.add('nav-active');
+          // console.log('aboutnav changed')
+          experienceNav!.classList.remove('nav-active');
+        }
+        else if ((!experienceNav?.classList.contains('nav-active'))
+          && (scrollTop > experiencePos && scrollTop < projectPos)) {
+          experienceNav!.classList.add('nav-active');
+          aboutNav!.classList.remove('nav-active');
+          projectNav!.classList.remove('nav-active');
+          // console.log('expnav changed')
+        }
+        else if ((!projectNav?.classList.contains('nav-active'))
+          && (scrollTop > experiencePos && scrollTop > projectPos)) {
+          projectNav!.classList.add('nav-active');
+          experienceNav!.classList.remove('nav-active');
+          // console.log('projectnav changed')
+        }
       }
-      else if((!projectNav?.classList.contains('nav-active'))
-        && (scrollTop > experiencePos && scrollTop > projectPos)){
-        projectNav!.classList.add('nav-active');
-        experienceNav!.classList.remove('nav-active');
-        // console.log('projectnav changed')
+
+      //mount
+      window.addEventListener("scroll", navActivateCallback);
+
+      //clean-up, unmount
+      return () => window.removeEventListener('scroll', navActivateCallback);
+      }
+
+      if (mobileMode != 'none') {
+        console.log('m mode')
+
+        let mobileNav = document.getElementById('mobile-nav')!
+        let mobileNavText = document.getElementById('mobile-nav')!.innerHTML
+
+        //do not need to set default, alread says "About Me"
+
+        const navActivateCallback = (e: Event) => {
+          scrollTop = document.documentElement.scrollTop
+
+          // console.log(`${scrollTop}, aboutPos ${aboutPos}, experiencePos ${experiencePos}, projectPos ${projectPos}`)
+
+          if ((mobileNavText != "About Me")
+            && (scrollTop == 0 || (scrollTop > aboutPos && scrollTop < experiencePos))) {
+              mobileNav.classList.add('nav-mobile-fade');
+              mobileNavText = "About Me"
+              // console.log('m - about changed')
+              //let fade play
+              setTimeout(() => {
+                mobileNav.innerText = mobileNavText
+                mobileNav.classList.remove('nav-mobile-fade');
+              }, 200);
+          }
+          else if ((mobileNavText != "Experience")
+            && (scrollTop > experiencePos && scrollTop < projectPos)) {
+              mobileNav.classList.add('nav-mobile-fade');
+              mobileNavText = "Experience"
+              setTimeout(() => {
+                mobileNav.innerText = mobileNavText
+                mobileNav.classList.remove('nav-mobile-fade');
+              }, 200);
+          }
+          else if ((mobileNavText != "Projects")
+            && (scrollTop > experiencePos && scrollTop > projectPos)) {
+              mobileNav.classList.add('nav-mobile-fade');
+              mobileNavText = "Projects"
+              setTimeout(() => {
+                mobileNav.innerText = mobileNavText
+                mobileNav.classList.remove('nav-mobile-fade');
+              }, 200);
+          }
+        }
+
+        //mount
+        window.addEventListener("scroll", navActivateCallback);
+
+        //clean-up, unmount
+        return () => window.removeEventListener('scroll', navActivateCallback);
       }
     }
-  
-    //mount
-    window.addEventListener("scroll", navActivateCallback);
-  
-    //clean-up, unmount
-    return () => window.removeEventListener('scroll', navActivateCallback);
-  
   }, []);
-// }
 
   return (
     <>
@@ -240,13 +294,11 @@ export default function Home() {
               tools={['Next.js', 'Figma']}
             />
             <WorkCard
-              // logo={EagleEyeLogo}
               position='Website Designer and Developer'
               company='Eagle Eye Monitoring, LLC.'
               jobType='Freelance (Remote)'
               duration='Nov 2023 - Apr 2024'
               blurb='Website for parking enforcement company.'
-              // link='/professional/eagle-eye'
               tools={['Next.js', 'TypeScript', 'SCSS', 'Figma', 'MUI Base-UI', 'Vercel', 'Resend', 'React-Email']}
               buttons={[
               {
