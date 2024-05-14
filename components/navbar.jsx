@@ -20,13 +20,18 @@ export default function Navbar(){
             <p style={{color:'#fff'}}>Contact</p>
           </nav>
         ) : (
-          <nav className='center-nav'>
+          <>
+          <nav className='center-nav desktop'>
             <a className='nav-item' id='about-nav' aria-label="About Me section nav" onClick={() => customScroll('about')}>About Me</a>
             <span className='bullet'>&bull;</span>
             <a className='nav-item' id='experience-nav' aria-label="Experience section nav" onClick={() => customScroll('experience')}>Experience</a>
             <span className='bullet'>&bull;</span>
             <a className='nav-item' id='project-nav' aria-label="Projects section nav" onClick={() => customScroll('projects')}>Projects</a>
           </nav>
+          <div className='center-nav mobile'>
+            <p className='nav-item' id='mobile-nav' aria-label="mobile section nav">About Me</p>  {/* by default */}
+          </div>
+          </>
         )}
 
         <div className='flex-other'>

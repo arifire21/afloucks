@@ -42,8 +42,12 @@
 }
 
 @media (max-width:450px) {
-  .cardWithCarouselContainer{
+  /* .cardWithCarouselContainer{
     flex-direction: column-reverse;
+  } */
+
+  .pageCarouselContainer {
+    display: none;
   }
 
   .sharedCardContainer {

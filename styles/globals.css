@@ -111,6 +111,10 @@ a {
     #134e13 1px 0 10px;
 }
 
+.nav-mobile-fade {
+  opacity: 0 !important;
+}
+
 .chip-container{
   margin: 0 0.5rem;
   display: flex;
@@ -120,6 +124,10 @@ a {
 
 .contact-link:hover {
   text-decoration: underline;
+}
+
+.mobile {
+  display: none;
 }
 
 /* @media (prefers-color-scheme: light) {
@@ -157,5 +165,21 @@ a {
 
   .navbar, .nav-item {
     background-color: (--joy-palette-primary-600, #7cb342);
+  }
+}
+
+@media (max-width:450px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .nav-item {
+    cursor: unset;
+    transition-duration: 0.2s;
+    opacity: unset;
   }
 }
