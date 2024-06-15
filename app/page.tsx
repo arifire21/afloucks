@@ -5,19 +5,22 @@ import { List, ListDivider, ListItem, Typography } from '@mui/joy'
 import Navbar from '@/components/navbar'
 import { SiFigma, SiHtml5, SiCss3, SiAmazonaws, SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiJquery, SiDjango, SiDiscord, SiGithub, SiDevpost, SiLinkedin, SiJira, SiTrello, SiCanva, SiPython, SiMysql, SiOracle, SiNotion, SiGimp, SiMui, SiBootstrap, SiNodedotjs, SiVisualstudiocode, SiVisualstudio, SiCplusplus, SiCsharp, SiUnity, SiArduino, SiCreality, SiMongodb } from "react-icons/si";
 import { FaJava } from 'react-icons/fa';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Carousel from '@/components/carousel'
+import TopButton from '@/components/top-button.jsx'
 
 import {justLearnImages, silviImages, LeiImages, surveyImages} from './all_image_data.js'
 import ContactInfo from '@/components/contact-info.jsx'
 
 export default function Home() {
+  const [unstuck, setUnstuck] = useState(false)
+
+  //NAVBAR SCROLL / TEXT EFFECTS
   useEffect(() => {
     if (typeof window != "undefined") {
       const desktopMode = window.getComputedStyle(document.querySelector<HTMLElement>('.desktop')!).display
       const mobileMode = window.getComputedStyle(document.querySelector<HTMLElement>('.mobile')!).display
 
-      // Function to handle scroll events
       // Get current scroll position
       let scrollTop = document.body.scrollTop;
 
@@ -28,7 +31,7 @@ export default function Home() {
       
       //desktop ver
       if (desktopMode != 'none') {
-        console.log('d mode')
+        // console.log('d mode')
       const aboutNav = document.getElementById('about-nav');
       const experienceNav = document.getElementById('experience-nav');
       const projectNav = document.getElementById('project-nav');
@@ -77,7 +80,7 @@ export default function Home() {
         let mobileNav = document.getElementById('mobile-nav')!
         let mobileNavText = document.getElementById('mobile-nav')!.innerHTML
 
-        //do not need to set default, alread says "About Me"
+        //do not need to set default, already says "About Me"
 
         const navActivateCallback = (e: Event) => {
           scrollTop = document.documentElement.scrollTop
@@ -124,9 +127,63 @@ export default function Home() {
     }
   }, []);
 
+  //UNSTICK NAVBAR IF RESIZED
+  useEffect(() => {
+    if (typeof window != "undefined") {
+    const nav = document.getElementById('navbar')
+
+    const resizeActivateCallback = (e: Event) => {
+      console.log('fire')
+      if(nav?.classList.contains('sticky')){
+        nav.classList.remove('sticky')
+        // unstuck = true
+        setUnstuck(true)
+        console.log(unstuck)
+      }
+    }
+
+    //mount
+    window.addEventListener("resize", resizeActivateCallback);
+
+    //clean-up, unmount
+    return () => window.removeEventListener("resize", resizeActivateCallback);
+    }
+  }, []);
+
+  //HANDLE SHOWING TOP BUTTON IF SCROLL PAST NAVBAR
+  useEffect(() => {
+    if(typeof window != "undefined"){
+      const tb = document.getElementById('topbutton')
+      // Get current scroll position
+      let scrollTop = document.body.scrollTop;
+
+      const buttonAppearanceCallback = (e: Event) => {
+        if(unstuck){ //dont update the val if this is not needed
+          scrollTop = document.documentElement.scrollTop
+
+          if(scrollTop < 80 && tb?.classList.contains('shown')){
+            tb.classList.remove('shown')
+            console.log('removed')
+          }
+          else if(scrollTop > 80 && !tb?.classList.contains('shown')){
+            tb?.classList.add('shown')
+            console.log('added')
+          }
+        }
+      }
+    
+      //mount
+      window.addEventListener("scroll", buttonAppearanceCallback);
+
+      //clean-up, unmount
+      return () => window.removeEventListener("scroll", buttonAppearanceCallback);
+    }
+  }, [unstuck])
+
   return (
     <>
     <Navbar/>
+    <TopButton/>
     <div className={styles.main}>
 
       <section className={styles.genericCenter}>

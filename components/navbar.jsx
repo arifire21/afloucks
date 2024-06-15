@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import DarkModeSwitch from '@/components/switch'
 import {Button} from '@mui/joy'
 import Link from 'next/link'
@@ -14,7 +14,7 @@ export default function Navbar(){
   }
 
     return(
-      <header className="navbar">
+      <header className="navbar sticky" id='navbar'>
         {pathname === '/contact' ? (
           <nav className='center-nav'>
             <p style={{color:'#fff'}}>Contact</p>

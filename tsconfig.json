@@ -26,6 +26,6 @@
       "@/pages/*": ["app/pages/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/pages/professional/justlearn/page.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/navbar.jsx"],
   "exclude": ["node_modules"]
 }

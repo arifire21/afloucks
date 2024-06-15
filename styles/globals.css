@@ -57,9 +57,19 @@ a {
   justify-content: space-around;
 }
 
+.sticky {
+  position: sticky;
+}
+
+.shown {
+  /* transition-property: display;
+  transition-duration: 0.5s; */
+  display: block !important;
+  /* opacity: 1;   */
+}
+
 .navbar{
   z-index: 10;
-  position: sticky;
   top: 0px;
   height: 80px;
   /* width: 100vw; */
