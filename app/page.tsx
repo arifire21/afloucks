@@ -247,7 +247,7 @@ export default function Home() {
               <ListItem><SiTrello size={25}/>Trello</ListItem>
             </List>
 
-            <h3>Hobby Tools:</h3>
+            <h3>Hobby Tools</h3>
             <List
             orientation='horizontal'
             variant='outlined'
@@ -277,7 +277,7 @@ export default function Home() {
       <section>
         <h1 className={styles.header} id='experience'>Professional Experience</h1>
           <div className={styles.sharedCardContainer}>
-            <WorkCard
+            {/* <WorkCard
               position='Website Designer and Developer'
               company='Oceanside Group Service'
               jobType='Freelance (Remote)'
@@ -292,7 +292,7 @@ export default function Home() {
               duration='Apr 2024 - Present'
               blurb='Website for property management company.'
               tools={['Next.js', 'Figma']}
-            />
+            /> */}
             <WorkCard
               position='Website Designer and Developer'
               company='Eagle Eye Monitoring, LLC.'
@@ -331,9 +331,9 @@ export default function Home() {
               position='Website Developer'
               company='Loucks Engineering, Inc.'
               jobType='Part-Time'
-              duration='May 2023 - July 2023'
-              blurb='Website for consulting engineering firm, using React-Router-v6 and React-Bootstrap.'
-              tools={['React.js', 'JavaScript', 'JSON', 'React-Bootstrap', 'Heroku']}
+              duration='May 2023 - July 2023, May 2024 - Present'
+              blurb='Website for consulting engineering firm, using React-Router-v6 and React-Bootstrap. Currently overhauling portfolio presentation into an interactive map via Leaflet.'
+              tools={['React.js', 'JavaScript', 'JSON', 'React-Bootstrap', 'Leaflet', 'React-Leaflet']}
               buttons={[{
                 text:'Visit Site',
                 variant:'solid',
@@ -419,7 +419,7 @@ export default function Home() {
            */}
 
           <ProjectCard
-            projectTitle='Phishooks'
+            projectTitle='PhisHooks'
             date='Jan 2023 - May 2023'
             blurb='Capstone project using VirusTotal API. Designed frontend, including handling API response, conditional rendering, and mobile media rules. Also collaborated with team members to finalize designs and documentation.'
             tools={['React.JS', 'React-Bootstrap', 'Figma', 'VirusTotal API']}
