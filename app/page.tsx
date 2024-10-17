@@ -382,6 +382,30 @@ export default function Home() {
 
       <section>
         <h1 className={styles.header} id='projects'>Projects</h1>
+        <div className={styles.sharedCardContainer}>
+         <ProjectCard
+            projectTitle='VisuWatt'
+            date='October 2024'
+            blurb='Hackathon project developed in 24 hours with a team of 4 (Project manager, backend).
+              Web application that seeks to educate homeowners on energy consumption and the resources available to them to further that goal.
+              Working with 10 different counties in Florida, we created datasets to provide a visual example of what could be possible on a larger scale.'
+            tools={['Next.js', 'MongoDB Atlas', 'MUI-Joy', 'Pigeon Maps', 'JavaScript', 'Trello']}
+            buttons={[{
+              text:'View Details',
+              variant:'solid',
+              link:'https://devpost.com/software/visuwatt',
+              linkTo:'details'
+            },
+            {
+              text:'View Demo',
+              variant:'outlined',
+              link:'https://visuwatt.vercel.app/',
+              linkTo:'site'
+            }]}
+          />
+        </div>
+          
+      
         <div className={styles.cardWithCarouselContainer}>
           <div className={styles.pageCarouselContainer}>
             <Carousel images={surveyImages} project='PWA'/>
