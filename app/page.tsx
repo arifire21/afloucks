@@ -386,7 +386,7 @@ export default function Home() {
          <ProjectCard
             projectTitle='VisuWatt'
             date='October 2024'
-            blurb='Hackathon project developed in 24 hours with a team of 4 (Project manager, backend).
+            blurb='[Project Manager, Backend] Hackathon project developed in 24 hours with a team of 4.
               Web application that seeks to educate homeowners on energy consumption and the resources available to them to further that goal.
               Working with 10 different counties in Florida, we created datasets to provide a visual example of what could be possible on a larger scale.'
             tools={['Next.js', 'MongoDB Atlas', 'MUI-Joy', 'Pigeon Maps', 'JavaScript', 'Trello']}
@@ -414,8 +414,8 @@ export default function Home() {
             projectTitle='Survey Web App'
             subtitle='[Alum] FRC Team (Robotics)'
             date='Nov 2023 - Present'
-            blurb='Creating a web app made for a competitive robotics team to streamline survey during competitions.'
-            tools={['Next.js', 'Vercel Postgres', 'Vercel Blob', 'MUI Joy-UI', 'CSS', 'JavaScript']}
+            blurb='[Frontend/Backend, Solo] Creating a web app made for a competitive robotics team to streamline survey during competitions.'
+            tools={['Next.js', 'Vercel Postgres', 'Vercel Blob', 'MUI Joy-UI', 'PostgreSQL', 'CSS', 'JavaScript']}
             buttons={[
               {
                 text:'Visit Site',
@@ -445,7 +445,7 @@ export default function Home() {
           <ProjectCard
             projectTitle='PhisHooks'
             date='Jan 2023 - May 2023'
-            blurb='Capstone project using VirusTotal API. Designed frontend, including handling API response, conditional rendering, and mobile media rules. Also collaborated with team members to finalize designs and documentation.'
+            blurb='[Frontend] Capstone project using VirusTotal API. Handled API response, conditional rendering, and mobile media rules. Also collaborated with team members to finalize designs and documentation.'
             tools={['React.JS', 'React-Bootstrap', 'Figma', 'VirusTotal API']}
             buttons={[{
               text:'View GitHub',
@@ -459,7 +459,7 @@ export default function Home() {
         <ProjectCard
             projectTitle='Discord.js Bot'
             date='Nov 2022 - May 2023'
-            blurb='Bot created to present community wiki data.'
+            blurb='[Solo] Bot created to present community wiki data.'
             tools={['Discord.js', 'Node.js', 'Axios', 'WikiMedia API', 'AWS (EC2)']}
         />
 
@@ -468,7 +468,7 @@ export default function Home() {
             projectTitle='Plant Watering Notification System'
             subtitle='Secure Internet of Things (IoT) Final Project'
             date='Apr 2021 - May 2021'
-            blurb='Solo project - system created with an Arduino microcontroller that would measure moisture levels in soil.
+            blurb='[Solo project] System created with an Arduino microcontroller that would measure moisture levels in soil.
             The Arduino would wirelessly trigger a connected mailing service to notify the user if the readings were low.'
             tools={['Arduino Wifi 1000', 'C++', 'MailChimp']}
             buttons={[{
@@ -485,7 +485,7 @@ export default function Home() {
             projectTitle='Dog-Walking Alarm Clock'
             subtitle='Hands-On Engineering Design Final Project'
             date='Aug 2020 - Dec 2020'
-            blurb='Solo project - system created with an Arduino, LCD clock, and motor. The user would enter a target time;
+            blurb='[Solo project] System created with an Arduino, LCD clock, and motor. The user would enter a target time;
             once reached, the motor would “wag” the printed tail, and lights would flash as two visual indicators.
             The skills to prototype, 3D model, prep for 3D printing, and code were all taught through a rigorous course.'
             tools={['Arduino Uno R3', 'C++', 'SolidWorks']}
