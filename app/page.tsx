@@ -457,10 +457,16 @@ export default function Home() {
         {/* </div> */}
 
         <ProjectCard
-            projectTitle='Discord.js Bot'
-            date='Nov 2022 - May 2023'
+            projectTitle='Discord Wiki Bot'
+            date='Nov 2022 - May 2023, Jan 2025'
             blurb='[Solo] Bot created to present community wiki data.'
-            tools={['Discord.js', 'Node.js', 'Axios', 'WikiMedia API', 'AWS (EC2)']}
+            tools={['Discord HTTP API', 'AWS Lambda', 'WikiMedia API', 'Axios', '[formerly] Discord.js', '[formerly] AWS EC2']}
+            buttons={[{
+              text: 'View GitHub',
+              variant: 'solid',
+              link: 'https://github.com/arifire21/wiki-bot',
+              linkTo:'github'
+            }]}
         />
 
         {/* <div className={styles.cardContainer}> */}
@@ -468,7 +474,7 @@ export default function Home() {
             projectTitle='Plant Watering Notification System'
             subtitle='Secure Internet of Things (IoT) Final Project'
             date='Apr 2021 - May 2021'
-            blurb='[Solo project] System created with an Arduino microcontroller that would measure moisture levels in soil.
+            blurb='[Solo] System created with an Arduino microcontroller that would measure moisture levels in soil.
             The Arduino would wirelessly trigger a connected mailing service to notify the user if the readings were low.'
             tools={['Arduino Wifi 1000', 'C++', 'MailChimp']}
             buttons={[{
@@ -485,7 +491,7 @@ export default function Home() {
             projectTitle='Dog-Walking Alarm Clock'
             subtitle='Hands-On Engineering Design Final Project'
             date='Aug 2020 - Dec 2020'
-            blurb='[Solo project] System created with an Arduino, LCD clock, and motor. The user would enter a target time;
+            blurb='[Solo] System created with an Arduino, LCD clock, and motor. The user would enter a target time;
             once reached, the motor would “wag” the printed tail, and lights would flash as two visual indicators.
             The skills to prototype, 3D model, prep for 3D printing, and code were all taught through a rigorous course.'
             tools={['Arduino Uno R3', 'C++', 'SolidWorks']}
