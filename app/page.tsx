@@ -413,8 +413,8 @@ export default function Home() {
           <ProjectCard
             projectTitle='Survey Web App'
             subtitle='[Alum] FRC Team (Robotics)'
-            date='Nov 2023 - Present'
-            blurb='[Frontend/Backend, Solo] Creating a web app made for a competitive robotics team to streamline survey during competitions.'
+            date='Nov 2023 - December 2024'
+            blurb='[Frontend/Backend, Solo] Created a web app made for a competitive robotics team to streamline survey during competitions. (1/25) Currently reworking into a general-use template with resources and documentation, for practice with technical writing.'
             tools={['Next.js', 'Vercel Postgres', 'Vercel Blob', 'MUI Joy-UI', 'PostgreSQL', 'CSS', 'JavaScript']}
             buttons={[
               {
