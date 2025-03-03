@@ -23,7 +23,7 @@ import Lei4 from "@/images/loucks-eng/lei-portfolio-mobile.png"
 import Lei5 from "@/images/loucks-eng/lei-portfolio-jump-mobile.png"
 
 //survey-app
-import surveyHome from '@/images/survey/survey-home.png'
+import surveyHome from '@/images/survey/s-home.png'
 import surveyPit1 from '@/images/survey/s-pit1.png'
 import surveyPit2 from '@/images/survey/s-pit2.png'
 import surveyPit3 from '@/images/survey/s-pit3.png'
